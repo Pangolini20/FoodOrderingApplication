@@ -25,5 +25,9 @@ public class User {
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "payer")
     private List<Transaction> transactions;
 
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "owner")
+    private List<Restaurant> ownedRestaurants;
+
+
 
 }

@@ -21,4 +21,10 @@ public class Restaurant {
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "restaurant")
     private List<Order> orderList;
 
+    @ManyToOne
+    private User owner;
+
+    @ManyToMany
+    private List<User> deliveryWorker;
+
 }
