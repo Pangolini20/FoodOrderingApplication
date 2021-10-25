@@ -12,6 +12,7 @@ public class Restaurant {
 
     private String name;
 
-
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "restaurant")
+    private List<Food> foodList;
 
 }

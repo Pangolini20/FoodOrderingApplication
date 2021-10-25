@@ -1,9 +1,6 @@
 package com.example.foodorderingapplication.db.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Food {
@@ -15,5 +12,8 @@ public class Food {
     private String name;
     private String description;
     private Integer price;
+
+    @ManyToOne
+    private Restaurant restaurant;
 
 }

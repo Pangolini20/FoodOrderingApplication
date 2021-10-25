@@ -15,6 +15,9 @@ public class Order {
     public Order() {
     }
 
+    @ManyToMany
+    private List<Food> foodList;
+
     public Order(Long id) {
         this.id = id;
     }
