@@ -15,4 +15,10 @@ public class Restaurant {
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "restaurant")
     private List<Food> foodList;
 
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "restaurant")
+    private List<Code> codeList;
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "restaurant")
+    private List<Order> orderList;
+
 }

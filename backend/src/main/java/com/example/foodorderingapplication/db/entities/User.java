@@ -16,5 +16,14 @@ public class User {
     private Role role;
     private String address;
 
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "deliveryGuy")
+    private List<Order> tasks;
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "receiver")
+    private List<Order> orders;
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "payer")
+    private List<Transaction> transactions;
+
 
 }
