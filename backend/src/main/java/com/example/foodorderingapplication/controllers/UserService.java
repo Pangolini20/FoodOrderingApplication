@@ -60,7 +60,24 @@ public class UserService implements UserController{
 
     }
 
+    @Override
+    @PutMapping("/edit")
+    public ResponseEntity<UserProfile> editUser(@RequestBody UserProfile userProfile) {
+        User user = userService.editUser(userProfile);
+        if(user != null)
+        {
+            UserProfile userProfile1=new UserProfile(user.getId(),
+                    user.getUsername(),
+                    user.getAddress(),
+                    user.getRole(),
+                    user.getEmail());
+
+            ResponseEntity<UserProfile> entity = new ResponseEntity<UserProfile>(userProfile1,HttpStatus.OK);
+            return entity;
+
+        }
+        else throw new UserNotFoundException();
 
 
-
+    }
 }

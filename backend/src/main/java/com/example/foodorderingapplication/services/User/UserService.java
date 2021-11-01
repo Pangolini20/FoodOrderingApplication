@@ -12,5 +12,5 @@ public interface UserService {
     List<UserProfile> getUsers();
     Optional<UserProfile> getUser(Long id);
     User createUser(RegisterDetails registerDetails);
-    //User editUser()
+    User editUser(UserProfile userProfile);
 }

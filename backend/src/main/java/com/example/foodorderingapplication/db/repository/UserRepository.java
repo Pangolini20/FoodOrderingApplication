@@ -11,9 +11,13 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User,Long> {
 
-    @Query("SELECT new com.example.foodorderingapplication.dto.UserProfile(u.id,u.username,u.address,u.role) from User u")
+    @Query("SELECT new com.example.foodorderingapplication.dto.UserProfile(u.id,u.username,u.address,u.role,u.email) from User u")
     List<UserProfile> getallUserProfile();
 
-    @Query("SELECT new com.example.foodorderingapplication.dto.UserProfile(u.id,u.username,u.address,u.role) from User u")
+    @Query("SELECT new com.example.foodorderingapplication.dto.UserProfile(u.id,u.username,u.address,u.role,u.email) from User u where u.id = :id ")
     Optional<UserProfile> getUserProfile(@Param("id") Long id);
+
+    User findByEmail(String email);
+    User findByUsername(String username);
+
 }

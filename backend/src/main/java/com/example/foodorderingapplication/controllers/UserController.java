@@ -45,4 +45,14 @@ public interface UserController {
     })
     ResponseEntity<User> createUser(RegisterDetails registerDetails);
 
+    @Operation(description = "edits users profile")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",description = "User profile edited succesfully ",content ={
+                    @Content(mediaType = "application/json",schema = @Schema(implementation = UserProfile.class))
+            }),
+            @ApiResponse(responseCode = "400",description = "Invalid request",content = @Content),
+            @ApiResponse(responseCode = "404", description = "Could not edit user",content = @Content)
+    })
+    ResponseEntity<UserProfile> editUser(UserProfile userProfile);
+
 }
