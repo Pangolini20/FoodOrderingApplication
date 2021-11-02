@@ -41,7 +41,8 @@ public interface UserController {
                     {@Content(mediaType = "application/json",
                             schema = @Schema(implementation = User.class))}),
             @ApiResponse(responseCode = "400" ,description = "Invalid request",content = @Content),
-            @ApiResponse(responseCode = "404",description = "Could not create the user",content = @Content)
+            @ApiResponse(responseCode = "404",description = "Could not create the user",content = @Content),
+            @ApiResponse(responseCode = "409", description = "Username or email already exist",content = @Content)
     })
     ResponseEntity<User> createUser(RegisterDetails registerDetails);
 
@@ -51,7 +52,8 @@ public interface UserController {
                     @Content(mediaType = "application/json",schema = @Schema(implementation = UserProfile.class))
             }),
             @ApiResponse(responseCode = "400",description = "Invalid request",content = @Content),
-            @ApiResponse(responseCode = "404", description = "Could not edit user",content = @Content)
+            @ApiResponse(responseCode = "404", description = "Could not edit user",content = @Content),
+            @ApiResponse(responseCode = "409", description = "Username or email already exist",content = @Content)
     })
     ResponseEntity<UserProfile> editUser(UserProfile userProfile);
 

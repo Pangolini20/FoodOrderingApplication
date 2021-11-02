@@ -5,14 +5,13 @@ import com.example.foodorderingapplication.db.entities.User;
 import com.example.foodorderingapplication.db.repository.UserRepository;
 import com.example.foodorderingapplication.dto.RegisterDetails;
 import com.example.foodorderingapplication.dto.UserProfile;
-import com.example.foodorderingapplication.exceptions.CannotCreateUserException;
 import com.example.foodorderingapplication.exceptions.EmailAlreadyExistsException;
 import com.example.foodorderingapplication.exceptions.UserNotFoundException;
 import com.example.foodorderingapplication.exceptions.UsernameAlreadyExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.validation.constraints.Email;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -37,24 +36,37 @@ public class UserServiceImpl implements UserService{
     @Override
     public User createUser(RegisterDetails registerDetails) {
 
-        User t = userRepository.findByEmail(registerDetails.getEmail());
-        if(t != null)
-        throw new EmailAlreadyExistsException();
+       checkMail(registerDetails.getEmail());
+       checkUsername(registerDetails.getUsername());
 
-        t= userRepository.findByUsername(registerDetails.getUsername());
-        if(t != null)
-            throw new UsernameAlreadyExistsException();
-
-        User user = new User();
-        user.setUsername(registerDetails.getUsername());
-        user.setRole(registerDetails.getRole());
-        user.setPasswordHash(registerDetails.getPassword());
-        user.setEmail(registerDetails.getEmail());
+       User user = new User();
+       user.setUsername(registerDetails.getUsername());
+       user.setRole(registerDetails.getRole());
+       user.setPasswordHash(registerDetails.getPassword());
+       user.setEmail(registerDetails.getEmail());
 
         User u =userRepository.save(user);
 
         return u;
     }
+
+    private void checkMail(String email)
+    {
+        User t = userRepository.findByEmail(email);
+
+        if(t  !=null)
+            throw new EmailAlreadyExistsException("email already exists");
+    }
+
+    private void checkUsername(String username)
+    {
+        User t = userRepository.findByEmail(username);
+
+        if(t != null)
+            throw new UsernameAlreadyExistsException("username already exists");
+    }
+
+
 
     @Override
     public User editUser(UserProfile userProfile) {
@@ -62,7 +74,25 @@ public class UserServiceImpl implements UserService{
 
         if(user == null)
             throw new UserNotFoundException();
-        //MUST CHECK EMAIL AND USER
+
+        User t= userRepository.findByUsername(userProfile.getUsername());
+        if(t !=null)
+        {
+            if(t.getId() != user.getId() )
+            {
+                throw new UsernameAlreadyExistsException("username already exists to a different user");
+            }
+        }
+
+        t= userRepository.findByEmail(userProfile.getEmail());
+        if(t!=null)
+        {
+            if(t.getId() !=user.getId())
+            {
+                throw new EmailAlreadyExistsException("email is used by other user");
+            }
+        }
+
         user.setEmail(userProfile.getEmail());
         user.setUsername(userProfile.getUsername());
         user.setAddress(userProfile.getAddress());
