@@ -4,6 +4,7 @@ package com.example.foodorderingapplication.controllers;
 import com.example.foodorderingapplication.db.entities.Role;
 import com.example.foodorderingapplication.db.entities.User;
 import com.example.foodorderingapplication.dto.RegisterDetails;
+import com.example.foodorderingapplication.dto.UserLoginCredentials;
 import com.example.foodorderingapplication.dto.UserProfile;
 import com.example.foodorderingapplication.exceptions.CannotCreateUserException;
 import com.example.foodorderingapplication.exceptions.NoDataFoundException;
@@ -79,5 +80,17 @@ public class UserService implements UserController{
         else throw new UserNotFoundException();
 
 
+    }
+
+    @Override
+    @PostMapping("/login")
+    public ResponseEntity<UserLoginCredentials> login(@RequestBody UserLoginCredentials userLoginCredentials)
+    {
+        if(userService.loginCheck(userLoginCredentials) == Boolean.TRUE)
+        {
+            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        }
+        else
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 }

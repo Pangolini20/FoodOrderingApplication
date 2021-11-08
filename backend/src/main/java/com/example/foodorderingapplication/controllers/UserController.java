@@ -2,6 +2,7 @@ package com.example.foodorderingapplication.controllers;
 
 import com.example.foodorderingapplication.db.entities.User;
 import com.example.foodorderingapplication.dto.RegisterDetails;
+import com.example.foodorderingapplication.dto.UserLoginCredentials;
 import com.example.foodorderingapplication.dto.UserProfile;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -56,5 +57,16 @@ public interface UserController {
             @ApiResponse(responseCode = "409", description = "Username or email already exist",content = @Content)
     })
     ResponseEntity<UserProfile> editUser(UserProfile userProfile);
+
+    @Operation(description = "grants access to the user to log in ")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "202",description = "Login with correct username and password",content=@Content),
+            @ApiResponse(responseCode = "400",description = "Invalid request",content = @Content),
+            @ApiResponse(responseCode = "403", description = "Wrong username or password",content = @Content),
+            @ApiResponse(responseCode = "404", description = "Username does not exist",content = @Content)
+    })
+    ResponseEntity<UserLoginCredentials> login(UserLoginCredentials userLoginCredentials);
+
+
 
 }

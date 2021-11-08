@@ -4,11 +4,13 @@ package com.example.foodorderingapplication.services.User;
 import com.example.foodorderingapplication.db.entities.User;
 import com.example.foodorderingapplication.db.repository.UserRepository;
 import com.example.foodorderingapplication.dto.RegisterDetails;
+import com.example.foodorderingapplication.dto.UserLoginCredentials;
 import com.example.foodorderingapplication.dto.UserProfile;
 import com.example.foodorderingapplication.exceptions.EmailAlreadyExistsException;
 import com.example.foodorderingapplication.exceptions.UserNotFoundException;
 import com.example.foodorderingapplication.exceptions.UsernameAlreadyExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -19,6 +21,9 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService{
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public List<UserProfile> getUsers() {
@@ -42,12 +47,13 @@ public class UserServiceImpl implements UserService{
        User user = new User();
        user.setUsername(registerDetails.getUsername());
        user.setRole(registerDetails.getRole());
-       user.setPasswordHash(registerDetails.getPassword());
+       String hashPassword=bCryptPasswordEncoder.encode(registerDetails.getPassword());
+       user.setPasswordHash(hashPassword);
        user.setEmail(registerDetails.getEmail());
 
-        User u =userRepository.save(user);
+       User u =userRepository.save(user);
 
-        return u;
+       return u;
     }
 
     private void checkMail(String email)
@@ -65,7 +71,6 @@ public class UserServiceImpl implements UserService{
         if(t != null)
             throw new UsernameAlreadyExistsException("username already exists");
     }
-
 
 
     @Override
@@ -100,5 +105,18 @@ public class UserServiceImpl implements UserService{
         user = userRepository.save(user);
 
         return user;
+    }
+
+    @Override
+    public Boolean loginCheck(UserLoginCredentials userLoginCredentials) {
+
+        User u = userRepository.findByUsername(userLoginCredentials.getUsername());
+        if(u == null)
+            throw new UserNotFoundException();
+
+        if(bCryptPasswordEncoder.matches(userLoginCredentials.getNotHashedPassword(),u.getPasswordHash()))
+            return Boolean.TRUE;
+
+        return Boolean.FALSE;
     }
 }
