@@ -29,6 +29,9 @@ public class User {
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "owner")
     private List<Restaurant> ownedRestaurants;
 
+    @ManyToMany(mappedBy = "deliveryWorker") // the restaurant you work on
+    private List<Restaurant> restaurantList;
+
     public User(Long id, String username, String passwordHash, Role role, String address, String email, List<Order> tasks, List<Order> orders, List<Transaction> transactions, List<Restaurant> ownedRestaurants) {
         this.id = id;
         this.username = username;

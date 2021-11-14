@@ -25,6 +25,11 @@ public class Restaurant {
     private User owner;
 
     @ManyToMany
+    @JoinTable(
+            name = "restaurant_delivery",
+            joinColumns = @JoinColumn(name = "restaurantId"),
+            inverseJoinColumns = @JoinColumn(name ="userId")
+    )
     private List<User> deliveryWorker;
 
 }

@@ -11,4 +11,6 @@ public interface RestaurantRepository extends JpaRepository<Restaurant,Long> {
 
     @Query("select new com.example.foodorderingapplication.dto.RestaurantDTO(r.id,r.name) from Restaurant r")
     List<RestaurantDTO> findAllRestaurants();
+
+
 }

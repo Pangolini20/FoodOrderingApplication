@@ -1,6 +1,7 @@
 package com.example.foodorderingapplication.db.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Food {
@@ -15,5 +16,8 @@ public class Food {
 
     @ManyToOne
     private Restaurant restaurant;
+
+    @ManyToMany(mappedBy = "foodList")
+    private List<Order> orderList;
 
 }
