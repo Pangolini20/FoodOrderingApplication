@@ -5,10 +5,7 @@ import com.example.foodorderingapplication.db.entities.User;
 import com.example.foodorderingapplication.db.repository.RestaurantRepository;
 import com.example.foodorderingapplication.db.repository.UserRepository;
 import com.example.foodorderingapplication.dto.RestaurantDTO;
-import com.example.foodorderingapplication.exceptions.CannotCreateRestaurantException;
-import com.example.foodorderingapplication.exceptions.NoDataFoundException;
-import com.example.foodorderingapplication.exceptions.RestaurantNotFoundException;
-import com.example.foodorderingapplication.exceptions.UserNotFoundException;
+import com.example.foodorderingapplication.exceptions.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -72,27 +69,34 @@ public class RestaurantServiceImpl implements  RestaurantService{
     @Override
     public RestaurantDTO editRestaurant(RestaurantDTO restaurantDTO) {
 
-        Restaurant restaurant= restaurantRepository.getById(restaurantDTO.getId());
-
-        if(restaurant ==null)
+        Optional<User> userOptional = userRepository.findById(restaurantDTO.getOwnerId());
+        if(userOptional.isEmpty())
         {
-            throw new RestaurantNotFoundException("restaurant not found");
+            throw new UserNotFoundException();
+        }
+
+        Optional<Restaurant> opt= restaurantRepository.findById(restaurantDTO.getId());
+
+        if(opt.isPresent())
+        {
+            Restaurant r=opt.get();
+            r.setName(restaurantDTO.getName());
+            restaurantRepository.save(r);
+
+            return restaurantDTO;
         }
         else
-        {
-            restaurant.setName(restaurantDTO.getName());
-            restaurantRepository.save(restaurant);
-        }
+            throw new NoDataFoundException();
 
-        return restaurantDTO;
     }
 
     @Override
     public void deleteRestaurant(Long id) {
-        Restaurant restaurant= restaurantRepository.getById(id);
-        if(restaurant ==null) {
+        Optional<Restaurant> restaurantOptional= restaurantRepository.findById(id);
+        if(restaurantOptional.isEmpty()) {
             throw new RestaurantNotFoundException("restaurant not found");
         }
-        restaurantRepository.delete(restaurant);
+        else
+            restaurantRepository.delete(restaurantOptional.get());
     }
 }
