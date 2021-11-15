@@ -127,4 +127,14 @@ public class User {
     public void setOwnedRestaurants(List<Restaurant> ownedRestaurants) {
         this.ownedRestaurants = ownedRestaurants;
     }
+
+    public void addRestaurant(Restaurant restaurant)
+    {
+        ownedRestaurants.add(restaurant);
+    }
+
+    public void removeRestaurant(Restaurant restaurant)
+    {
+        ownedRestaurants.remove(restaurant);
+    }
 }
