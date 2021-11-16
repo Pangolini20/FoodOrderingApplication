@@ -14,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,6 +51,12 @@ public class UserServiceImpl implements UserService{
        String hashPassword=bCryptPasswordEncoder.encode(registerDetails.getPassword());
        user.setPasswordHash(hashPassword);
        user.setEmail(registerDetails.getEmail());
+
+       user.setAddress("");
+       user.setTasks(Collections.emptyList());
+       user.setTransactions(Collections.emptyList());
+       user.setOrders(Collections.emptyList());
+       user.setOwnedRestaurants(Collections.emptyList());
 
        User u =userRepository.save(user);
 

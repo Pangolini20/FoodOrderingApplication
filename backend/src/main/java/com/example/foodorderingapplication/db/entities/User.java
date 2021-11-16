@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "users")
 public class User {
 
     @Id
@@ -28,6 +28,9 @@ public class User {
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "owner")
     private List<Restaurant> ownedRestaurants;
+
+    @ManyToMany(mappedBy = "deliveryWorker") // the restaurant you work on
+    private List<Restaurant> restaurantList;
 
     public User(Long id, String username, String passwordHash, Role role, String address, String email, List<Order> tasks, List<Order> orders, List<Transaction> transactions, List<Restaurant> ownedRestaurants) {
         this.id = id;
@@ -123,5 +126,15 @@ public class User {
 
     public void setOwnedRestaurants(List<Restaurant> ownedRestaurants) {
         this.ownedRestaurants = ownedRestaurants;
+    }
+
+    public void addRestaurant(Restaurant restaurant)
+    {
+        ownedRestaurants.add(restaurant);
+    }
+
+    public void removeRestaurant(Restaurant restaurant)
+    {
+        ownedRestaurants.remove(restaurant);
     }
 }
