@@ -1,12 +1,14 @@
 package com.example.foodorderingapplication.db.repository;
 
 import com.example.foodorderingapplication.db.entities.Food;
+import com.example.foodorderingapplication.db.entities.Restaurant;
 import com.example.foodorderingapplication.dto.FoodDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface FoodRepository extends JpaRepository<Food,Long> {
 
@@ -14,4 +16,7 @@ public interface FoodRepository extends JpaRepository<Food,Long> {
             "join f.restaurant r where r.id = :id")
     List<FoodDto> findByRestaurantId(@Param("id") Long id);
 
+    Optional<Food> findByNameAndRestaurant(String name, Restaurant restaurant);
+
+    List<Food> findByRestaurant(Restaurant restaurant);
 }
