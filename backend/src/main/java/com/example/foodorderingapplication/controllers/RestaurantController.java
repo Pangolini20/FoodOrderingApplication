@@ -58,7 +58,7 @@ public interface RestaurantController {
     )
     ResponseEntity<RestaurantDTO> editRestaurant(RestaurantDTO restaurantDTO);
 
-    @Operation(description = "Gets all the restaurants from the database")
+    @Operation(description = "Delete a restaurant from database")
     @ApiResponses(
             value = {
                     @ApiResponse(responseCode = "200",description = "deletes the restaurant",
