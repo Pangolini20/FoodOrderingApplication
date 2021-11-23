@@ -11,5 +11,5 @@ public interface FoodService {
     List<FoodDto> getAllFoodByRestaurant(Long id);
     FoodDto createFood(Long id,FoodDetails foodDetails);
     FoodDto editFood(Long id,FoodDetails foodDetails);
-    void deleteFood();
+    void deleteFood(Long id);
 }

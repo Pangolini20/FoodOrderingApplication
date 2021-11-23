@@ -11,5 +11,5 @@ public interface FoodController {
     List<FoodDto> getFoodByRestaurant(Long id);
     ResponseEntity<FoodDto> createFood(Long id,FoodDetails foodDetails);
     ResponseEntity<FoodDto> editFood(Long id,FoodDetails foodDetails);
-    void deleteFood();
+    void deleteFood(Long id);
 }

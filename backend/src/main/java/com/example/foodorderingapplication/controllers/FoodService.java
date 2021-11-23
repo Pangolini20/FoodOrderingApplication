@@ -33,12 +33,12 @@ public class FoodService implements FoodController{
     @Override
     @PutMapping
     public ResponseEntity<FoodDto> editFood(Long id, FoodDetails foodDetails) {
-        return null;
+        return new ResponseEntity<FoodDto>(foodService.editFood(id,foodDetails),HttpStatus.OK);
     }
 
     @Override
     @DeleteMapping
-    public void deleteFood() {
-
+    public void deleteFood(Long id) {
+        foodService.deleteFood(id);
     }
 }

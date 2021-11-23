@@ -6,10 +6,12 @@ import com.example.foodorderingapplication.db.repository.FoodRepository;
 import com.example.foodorderingapplication.db.repository.RestaurantRepository;
 import com.example.foodorderingapplication.dto.FoodDetails;
 import com.example.foodorderingapplication.dto.FoodDto;
+import com.example.foodorderingapplication.exceptions.NoDataFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FoodServiceImpl implements FoodService{
@@ -42,11 +44,26 @@ public class FoodServiceImpl implements FoodService{
 
     @Override
     public FoodDto editFood(Long id,FoodDetails foodDetails) {
-        return null;
+
+        Optional<Food> opt = foodRepository.findById(id);
+        if(opt.isEmpty())
+            throw new NoDataFoundException();
+
+        Food food=opt.get();
+        food.setName(foodDetails.getName());
+        food.setDescription(foodDetails.getDescription());
+        food.setPrice(foodDetails.getPrice());
+
+        foodRepository.save(food);
+
+        return new FoodDto(id,foodDetails.getName(),foodDetails.getDescription(),foodDetails.getPrice(),food.getRestaurant().getId());
     }
 
     @Override
-    public void deleteFood() {
-
+    public void deleteFood(Long id) {
+        Optional<Food> food = foodRepository.findById(id);
+        if(food.isEmpty())
+            throw new NoDataFoundException();
+        foodRepository.delete(food.get());
     }
 }
