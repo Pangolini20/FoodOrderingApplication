@@ -1,5 +1,6 @@
 package com.example.foodorderingapplication.services.Food;
 
+import com.example.foodorderingapplication.db.entities.Category;
 import com.example.foodorderingapplication.db.entities.Food;
 import com.example.foodorderingapplication.db.entities.Restaurant;
 import com.example.foodorderingapplication.db.repository.FoodRepository;
@@ -127,5 +128,10 @@ public class FoodServiceImpl implements FoodService{
         if(food.isEmpty())
             throw new NoDataFoundException();
         foodRepository.delete(food.get());
+    }
+
+    @Override
+    public List<FoodDto> getFoodByCategory(Category category) {
+        return foodRepository.getFoodDtoByCategory(category);
     }
 }

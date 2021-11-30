@@ -1,5 +1,6 @@
 package com.example.foodorderingapplication.controllers;
 
+import com.example.foodorderingapplication.db.entities.Category;
 import com.example.foodorderingapplication.dto.FoodDetails;
 import com.example.foodorderingapplication.dto.FoodDto;
 import com.example.foodorderingapplication.services.Food.FoodServiceImpl;
@@ -40,5 +41,11 @@ public class FoodService implements FoodController{
     @DeleteMapping
     public void deleteFood(Long id) {
         foodService.deleteFood(id);
+    }
+
+    @Override
+    @GetMapping("/{category}")
+    public List<FoodDto> getByCategory(Category category) {
+        return foodService.getFoodByCategory(category);
     }
 }
