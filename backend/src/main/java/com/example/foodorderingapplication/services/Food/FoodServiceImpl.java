@@ -89,12 +89,13 @@ public class FoodServiceImpl implements FoodService{
         food.setDescription(foodDetails.getDescription());
         food.setPrice(foodDetails.getPrice());
         food.setName(foodDetails.getName());
+        food.setCategory(foodDetails.getCategory());
 
         food.setRestaurant(restaurantRepository.findById(id).get());
 
         food = foodRepository.save(food);
         System.out.println(id);
-        return new FoodDto(food.getId(),foodDetails.getName(),foodDetails.getDescription(),foodDetails.getPrice(),id);
+        return new FoodDto(food.getId(),foodDetails.getName(),foodDetails.getDescription(),foodDetails.getPrice(),id,food.getCategory());
     }
 
     @Override
@@ -113,10 +114,11 @@ public class FoodServiceImpl implements FoodService{
         food.setName(foodDetails.getName());
         food.setDescription(foodDetails.getDescription());
         food.setPrice(foodDetails.getPrice());
+        food.setCategory(foodDetails.getCategory());
 
         foodRepository.save(food);
 
-        return new FoodDto(id,foodDetails.getName(),foodDetails.getDescription(),foodDetails.getPrice(),food.getRestaurant().getId());
+        return new FoodDto(id,foodDetails.getName(),foodDetails.getDescription(),foodDetails.getPrice(),food.getRestaurant().getId(),food.getCategory());
     }
 
     @Override

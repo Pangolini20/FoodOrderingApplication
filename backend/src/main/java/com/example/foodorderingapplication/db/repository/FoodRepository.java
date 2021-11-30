@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public interface FoodRepository extends JpaRepository<Food,Long> {
 
-    @Query("select new com.example.foodorderingapplication.dto.FoodDto(f.id,f.name,f.description,f.price,r.id) from Food f " +
+    @Query("select new com.example.foodorderingapplication.dto.FoodDto(f.id,f.name,f.description,f.price,r.id,f.category) from Food f " +
             "join f.restaurant r where r.id = :id")
     List<FoodDto> findByRestaurantId(@Param("id") Long id);
 
