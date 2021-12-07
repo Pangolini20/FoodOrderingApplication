@@ -19,14 +19,14 @@ public class CodeService implements CodeController{
 
     @PostMapping("/{id}")
     @Override
-    public ResponseEntity<CodeDto> createCode(Long id,CodeDetails codeDetails) {
-        return new ResponseEntity<CodeDto>(codeService.createCode(id,codeDetails),HttpStatus.CREATED);
+    public ResponseEntity<CodeDto> createCode(Long id, CodeDetails codeDetails) {
+        return new ResponseEntity<>(codeService.createCode(id,codeDetails),HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     @Override
     public ResponseEntity<CodeDto> editCode(Long id, CodeDetails codeDetails) {
-        return new ResponseEntity<CodeDto>(codeService.editCode(id,codeDetails),HttpStatus.OK);
+        return new ResponseEntity<>(codeService.editCode(id,codeDetails),HttpStatus.OK);
     }
 
     @Override
