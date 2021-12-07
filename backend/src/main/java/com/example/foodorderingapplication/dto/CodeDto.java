@@ -3,14 +3,18 @@ package com.example.foodorderingapplication.dto;
 public class CodeDto {
     private Long id;
     private Long restaurantId;
-    private Long name;
+    private String name;
     private Long value;
     private String expirationDate;
 
     public CodeDto() {
     }
 
-    public CodeDto(Long id, Long restaurantId, Long name, Long value, String expirationDate) {
+    public CodeDto(Long id) {
+        this.id = id;
+    }
+
+    public CodeDto(Long id, Long restaurantId, String name, Long value, String expirationDate) {
         this.id = id;
         this.restaurantId = restaurantId;
         this.name = name;
@@ -34,11 +38,11 @@ public class CodeDto {
         this.restaurantId = restaurantId;
     }
 
-    public Long getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Long name) {
+    public void setName(String name) {
         this.name = name;
     }
 
