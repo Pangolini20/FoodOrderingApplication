@@ -8,10 +8,12 @@ import com.example.foodorderingapplication.dto.CodeDetails;
 import com.example.foodorderingapplication.dto.CodeDto;
 import com.example.foodorderingapplication.exceptions.NoDataFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CodeServiceImpl implements CodeService {
 
     @Autowired
