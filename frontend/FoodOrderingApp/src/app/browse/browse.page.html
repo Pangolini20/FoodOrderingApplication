@@ -1,0 +1,48 @@
+<ion-content scroll-y="false">
+  <ion-toolbar>
+    <app-searchbar></app-searchbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-icon name="cart-outline" ></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+
+
+  <ion-slides>
+  <div class="categories">
+    <app-category-item *ngFor="let item of categories" [item]="item"></app-category-item>
+  </div>
+  </ion-slides>
+
+  <p align="center"> Search for your favourite restaurant ! </p>
+
+      <ion-toolbar>
+        <ion-label>
+          <p align="center">Mc Donald's</p>
+        </ion-label>
+        <p align="center">
+        <ion-img  src="./assets/images/mc.jpg" style="width: 50%" align="center"></ion-img>
+        </p>
+      </ion-toolbar>
+
+      <ion-toolbar>
+        <ion-label>
+          <p align="center">KFC</p>
+        </ion-label>
+        <p align="center">
+        <ion-img  src="./assets/images/kfc.jpg" style="width: 50%"></ion-img>
+        </p>
+      </ion-toolbar>
+
+  <p align="center"> And more others ! </p>
+  <ion-label>
+    <ion-textarea>
+      <p align="center" >
+      Don't forget to check the discount codes!
+      </p>
+    </ion-textarea>
+  </ion-label>
+</ion-content>
