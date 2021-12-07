@@ -13,6 +13,7 @@ public class Food {
     private String name;
     private String description;
     private Long price;
+    private Category category;
 
     @ManyToOne
     private Restaurant restaurant;
@@ -30,6 +31,24 @@ public class Food {
         this.price = price;
         this.restaurant = restaurant;
         this.orderList = orderList;
+    }
+
+    public Food(Long id, String name, String description, Long price, Category category, Restaurant restaurant, List<Order> orderList) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.category = category;
+        this.restaurant = restaurant;
+        this.orderList = orderList;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public Long getId() {

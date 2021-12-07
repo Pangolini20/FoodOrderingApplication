@@ -1,5 +1,6 @@
 package com.example.foodorderingapplication.controllers;
 
+import com.example.foodorderingapplication.db.entities.Category;
 import com.example.foodorderingapplication.dto.FoodDetails;
 import com.example.foodorderingapplication.dto.FoodDto;
 import com.example.foodorderingapplication.dto.RestaurantDTO;
@@ -58,4 +59,15 @@ public interface FoodController {
             }
     )
     void deleteFood(Long id);
+
+    @Operation(description = "Gets all the food from a specific category")
+    @ApiResponses(
+            value = {
+                    @ApiResponse(responseCode = "200",description = "Gets a list of food",
+                            content = {@Content(mediaType = "application/json",schema = @Schema(implementation = FoodDto.class))}),
+                    @ApiResponse(responseCode = "400",description = "Invalid request",content = @Content),
+                    @ApiResponse(responseCode = "404",description = "No food found",content = @Content)
+            }
+    )
+    List<FoodDto> getByCategory(Category category);
 }
