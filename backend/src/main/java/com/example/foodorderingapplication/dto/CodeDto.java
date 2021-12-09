@@ -1,30 +1,25 @@
-package com.example.foodorderingapplication.db.entities;
+package com.example.foodorderingapplication.dto;
 
-import javax.persistence.*;
-
-@Entity
-public class Code {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CodeDto {
     private Long id;
-
+    private Long restaurantId;
     private String name;
     private Long value;
     private String expirationDate;
 
-    @ManyToOne
-    private Restaurant restaurant;
-
-    public Code() {
+    public CodeDto() {
     }
 
-    public Code(Long id, String name, Long value, String expirationDate, Restaurant restaurant) {
+    public CodeDto(Long id) {
         this.id = id;
+    }
+
+    public CodeDto(Long id, Long restaurantId, String name, Long value, String expirationDate) {
+        this.id = id;
+        this.restaurantId = restaurantId;
         this.name = name;
         this.value = value;
         this.expirationDate = expirationDate;
-        this.restaurant = restaurant;
     }
 
     public Long getId() {
@@ -33,6 +28,14 @@ public class Code {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(Long restaurantId) {
+        this.restaurantId = restaurantId;
     }
 
     public String getName() {
@@ -57,13 +60,5 @@ public class Code {
 
     public void setExpirationDate(String expirationDate) {
         this.expirationDate = expirationDate;
-    }
-
-    public Restaurant getRestaurant() {
-        return restaurant;
-    }
-
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
     }
 }

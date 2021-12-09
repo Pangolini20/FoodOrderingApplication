@@ -15,7 +15,10 @@ public class Order {
     public Order() {
     }
 
-    @ManyToMany
+    @ManyToMany()
+    @JoinTable(name = "order_food",
+    joinColumns = @JoinColumn(name = "orderId"),
+    inverseJoinColumns = @JoinColumn(name = "foodId"))
     private List<Food> foodList;
 
     @ManyToOne

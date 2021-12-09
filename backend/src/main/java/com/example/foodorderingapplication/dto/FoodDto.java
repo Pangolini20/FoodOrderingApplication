@@ -1,46 +1,31 @@
-package com.example.foodorderingapplication.db.entities;
+package com.example.foodorderingapplication.dto;
 
-import javax.persistence.*;
-import java.util.List;
+import com.example.foodorderingapplication.db.entities.Category;
 
-@Entity
-public class Food {
+public class FoodDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
     private String description;
     private Long price;
+    private Long restaurantId;
     private Category category;
 
-    @ManyToOne
-    private Restaurant restaurant;
-
-    @ManyToMany(mappedBy = "foodList")
-    private List<Order> orderList;
-
-    public Food() {
-    }
-
-    public Food(Long id, String name, String description, Long price, Restaurant restaurant, List<Order> orderList) {
+    public FoodDto(Long id, String name, String description, Long price, Long restaurantId) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.restaurant = restaurant;
-        this.orderList = orderList;
+        this.restaurantId = restaurantId;
     }
 
-    public Food(Long id, String name, String description, Long price, Category category, Restaurant restaurant, List<Order> orderList) {
+    public FoodDto(Long id, String name, String description, Long price, Long restaurantId, Category category) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
+        this.restaurantId = restaurantId;
         this.category = category;
-        this.restaurant = restaurant;
-        this.orderList = orderList;
     }
 
     public Category getCategory() {
@@ -83,19 +68,11 @@ public class Food {
         this.price = price;
     }
 
-    public Restaurant getRestaurant() {
-        return restaurant;
+    public Long getRestaurantId() {
+        return restaurantId;
     }
 
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
-
-    public List<Order> getOrderList() {
-        return orderList;
-    }
-
-    public void setOrderList(List<Order> orderList) {
-        this.orderList = orderList;
+    public void setRestaurantId(Long restaurantId) {
+        this.restaurantId = restaurantId;
     }
 }
