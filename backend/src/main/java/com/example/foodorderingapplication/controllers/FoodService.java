@@ -1,11 +1,10 @@
 package com.example.foodorderingapplication.controllers;
 
 import com.example.foodorderingapplication.db.entities.Category;
-import com.example.foodorderingapplication.dto.FoodDetails;
-import com.example.foodorderingapplication.dto.FoodDto;
+import com.example.foodorderingapplication.dto.food.FoodDetails;
+import com.example.foodorderingapplication.dto.food.FoodDto;
 import com.example.foodorderingapplication.services.Food.FoodServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

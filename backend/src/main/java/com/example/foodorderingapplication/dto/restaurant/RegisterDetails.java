@@ -1,29 +1,19 @@
-package com.example.foodorderingapplication.dto;
+package com.example.foodorderingapplication.dto.restaurant;
 
 import com.example.foodorderingapplication.db.entities.Role;
 
-public class UserProfile {
+public class RegisterDetails {
 
-    private Long id;
     private String username;
-    private String address;
+    private String password;
     private Role role;
     private String email;
 
-    public UserProfile(Long id, String username, String address, Role role, String email) {
-        this.id = id;
+    public RegisterDetails(String username, String password, Role role, String email) {
         this.username = username;
-        this.address = address;
+        this.password = password;
         this.role = role;
         this.email = email;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getUsername() {
@@ -34,12 +24,12 @@ public class UserProfile {
         this.username = username;
     }
 
-    public String getAddress() {
-        return address;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Role getRole() {
