@@ -1,4 +1,4 @@
-package com.example.foodorderingapplication.dto;
+package com.example.foodorderingapplication.dto.user;
 
 import com.example.foodorderingapplication.db.entities.Role;
 

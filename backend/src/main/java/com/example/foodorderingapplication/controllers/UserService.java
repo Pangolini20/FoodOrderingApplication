@@ -1,16 +1,14 @@
 package com.example.foodorderingapplication.controllers;
 
 
-import com.example.foodorderingapplication.db.entities.Role;
 import com.example.foodorderingapplication.db.entities.User;
-import com.example.foodorderingapplication.dto.RegisterDetails;
-import com.example.foodorderingapplication.dto.UserLoginCredentials;
-import com.example.foodorderingapplication.dto.UserProfile;
+import com.example.foodorderingapplication.dto.restaurant.RegisterDetails;
+import com.example.foodorderingapplication.dto.user.UserLoginCredentials;
+import com.example.foodorderingapplication.dto.user.UserProfile;
 import com.example.foodorderingapplication.exceptions.CannotCreateUserException;
 import com.example.foodorderingapplication.exceptions.NoDataFoundException;
 import com.example.foodorderingapplication.exceptions.UserNotFoundException;
 import com.example.foodorderingapplication.services.User.UserServiceImpl;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
