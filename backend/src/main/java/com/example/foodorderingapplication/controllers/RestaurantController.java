@@ -1,7 +1,6 @@
 package com.example.foodorderingapplication.controllers;
 
-import com.example.foodorderingapplication.dto.RestaurantDTO;
-import com.example.foodorderingapplication.dto.UserProfile;
+import com.example.foodorderingapplication.dto.restaurant.RestaurantDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

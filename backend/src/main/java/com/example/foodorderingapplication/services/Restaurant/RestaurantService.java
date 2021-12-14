@@ -1,9 +1,8 @@
 package com.example.foodorderingapplication.services.Restaurant;
 
-import com.example.foodorderingapplication.dto.RestaurantDTO;
+import com.example.foodorderingapplication.dto.restaurant.RestaurantDTO;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface RestaurantService {
     List<RestaurantDTO> getRestaurants();

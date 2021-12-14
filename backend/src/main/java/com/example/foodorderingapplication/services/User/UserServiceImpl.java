@@ -3,9 +3,9 @@ package com.example.foodorderingapplication.services.User;
 
 import com.example.foodorderingapplication.db.entities.User;
 import com.example.foodorderingapplication.db.repository.UserRepository;
-import com.example.foodorderingapplication.dto.RegisterDetails;
-import com.example.foodorderingapplication.dto.UserLoginCredentials;
-import com.example.foodorderingapplication.dto.UserProfile;
+import com.example.foodorderingapplication.dto.restaurant.RegisterDetails;
+import com.example.foodorderingapplication.dto.user.UserLoginCredentials;
+import com.example.foodorderingapplication.dto.user.UserProfile;
 import com.example.foodorderingapplication.exceptions.EmailAlreadyExistsException;
 import com.example.foodorderingapplication.exceptions.UserNotFoundException;
 import com.example.foodorderingapplication.exceptions.UsernameAlreadyExistsException;

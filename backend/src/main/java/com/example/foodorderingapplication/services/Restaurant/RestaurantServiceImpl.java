@@ -4,7 +4,7 @@ import com.example.foodorderingapplication.db.entities.Restaurant;
 import com.example.foodorderingapplication.db.entities.User;
 import com.example.foodorderingapplication.db.repository.RestaurantRepository;
 import com.example.foodorderingapplication.db.repository.UserRepository;
-import com.example.foodorderingapplication.dto.RestaurantDTO;
+import com.example.foodorderingapplication.dto.restaurant.RestaurantDTO;
 import com.example.foodorderingapplication.exceptions.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.example.foodorderingapplication.dto;
+package com.example.foodorderingapplication.dto.user;
 
 public class UserLoginCredentials {
 

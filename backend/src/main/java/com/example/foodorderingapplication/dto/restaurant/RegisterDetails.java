@@ -1,4 +1,4 @@
-package com.example.foodorderingapplication.dto;
+package com.example.foodorderingapplication.dto.restaurant;
 
 import com.example.foodorderingapplication.db.entities.Role;
 

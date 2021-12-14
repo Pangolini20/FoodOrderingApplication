@@ -1,4 +1,4 @@
-package com.example.foodorderingapplication.dto;
+package com.example.foodorderingapplication.dto.code;
 
 public class CodeDetails {
 

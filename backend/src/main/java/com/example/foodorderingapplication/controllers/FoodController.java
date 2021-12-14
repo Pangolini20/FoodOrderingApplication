@@ -1,9 +1,9 @@
 package com.example.foodorderingapplication.controllers;
 
 import com.example.foodorderingapplication.db.entities.Category;
-import com.example.foodorderingapplication.dto.FoodDetails;
-import com.example.foodorderingapplication.dto.FoodDto;
-import com.example.foodorderingapplication.dto.RestaurantDTO;
+import com.example.foodorderingapplication.dto.food.FoodDetails;
+import com.example.foodorderingapplication.dto.food.FoodDto;
+import com.example.foodorderingapplication.dto.restaurant.RestaurantDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

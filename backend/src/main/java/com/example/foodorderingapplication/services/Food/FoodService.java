@@ -2,8 +2,8 @@ package com.example.foodorderingapplication.services.Food;
 
 
 import com.example.foodorderingapplication.db.entities.Category;
-import com.example.foodorderingapplication.dto.FoodDetails;
-import com.example.foodorderingapplication.dto.FoodDto;
+import com.example.foodorderingapplication.dto.food.FoodDetails;
+import com.example.foodorderingapplication.dto.food.FoodDto;
 
 import java.util.List;
 

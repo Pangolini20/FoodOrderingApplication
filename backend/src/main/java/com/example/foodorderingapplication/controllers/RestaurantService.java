@@ -1,6 +1,6 @@
 package com.example.foodorderingapplication.controllers;
 
-import com.example.foodorderingapplication.dto.RestaurantDTO;
+import com.example.foodorderingapplication.dto.restaurant.RestaurantDTO;
 import com.example.foodorderingapplication.exceptions.CannotCreateRestaurantException;
 import com.example.foodorderingapplication.exceptions.CannotEditDataException;
 import com.example.foodorderingapplication.services.Restaurant.RestaurantServiceImpl;
