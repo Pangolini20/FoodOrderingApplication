@@ -5,9 +5,7 @@ import com.example.foodorderingapplication.dto.order.OrderDetails;
 import com.example.foodorderingapplication.dto.order.OrderDto;
 import com.example.foodorderingapplication.services.Order.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,11 +17,13 @@ public class OrderService implements OrderController{
     OrderServiceImpl orderService;
 
     @Override
+    @GetMapping
     public List<OrderDto> getUserOrders(Long id) {
         return orderService.getOrders(id);
     }
 
     @Override
+    @PostMapping
     public OrderDto createOrder(@RequestBody OrderDto orderDto) {
         return orderService.createOrder(orderDto);
     }
