@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MenuController} from "@ionic/angular";
 
 @Component({
   selector: 'app-add-food',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddFoodPage implements OnInit {
 
-  constructor() { }
+  constructor(private menu:MenuController) { }
 
   ngOnInit() {
   }
 
+  _openMenuAdmin(){
+    this.menu.enable(true, 'second');
+    this.menu.open('second');
+  }
 }

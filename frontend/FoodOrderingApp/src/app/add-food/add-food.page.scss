@@ -1,0 +1,51 @@
+ion-content {
+ ion-toolbar {
+    --background: #9CA986;
+  ion-title{
+    font-family: "Lucida Calligraphy";
+
+  }
+    ion-buttons {
+      ion-icon {
+        width: 40px;
+        height: 30px;
+        top: -20px;
+      }
+    }
+  }
+ ion-card-content{
+   p{
+     font-style: italic;
+     font-size: 20px;
+     font-family: "Lucida Calligraphy";
+   }
+ }
+  ion-item{
+    padding-left: 30px;
+    ion-button{
+      background: #9CA986 ;
+      border-radius: 9px;
+
+    }
+  }
+ ion-list {
+   ion-item {
+     padding-top: 30px;
+     ion-label{
+      font-size: 20px;
+       ion-input{
+         font-size: 20px;
+         border: #0d0d0d;
+       }
+     }
+   }
+ }
+  .save{
+    background: #9CA986 ;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 20%;
+    border-radius: 9px;
+  }
+}
+
