@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Category} from "../Models/category.model";
+import {MenuController} from "@ionic/angular";
 
 @Component({
   selector: 'app-browse',
@@ -8,10 +9,14 @@ import {Category} from "../Models/category.model";
 })
 export class BrowsePage implements OnInit {
   categories: Category[] = [];
-  constructor() { }
+  constructor(private menu:MenuController) { }
 
   ngOnInit() {
     this.getCategories();
+  }
+  _openMenuClient(){
+    this.menu.enable(true, 'main');
+    this.menu.open('main');
   }
 
   getCategories(){
