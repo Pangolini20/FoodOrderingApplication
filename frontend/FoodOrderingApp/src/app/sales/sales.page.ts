@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MenuController} from "@ionic/angular";
 
 @Component({
   selector: 'app-sales',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalesPage implements OnInit {
 
-  constructor() { }
+  constructor(private menu:MenuController) { }
 
   ngOnInit() {
+
   }
 
+  _openMenuAdmin(){
+    this.menu.enable(true, 'second');
+    this.menu.open('second');
+  }
 }
