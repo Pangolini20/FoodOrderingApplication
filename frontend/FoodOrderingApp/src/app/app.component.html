@@ -1,3 +1,77 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu swipe-gesture="false" class="custom" side="start" menuId="main" contentId="main" type="overlay">
+    <ion-header>
+      <ion-toolbar color="success">
+        <ion-title color="dark">Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item routerLink="/browse">
+            <ion-icon name="search" slot="start"></ion-icon>
+            <ion-label>Browse</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/orders">
+            <ion-icon name="list-circle-outline" slot="start"></ion-icon>
+            <ion-label>Orders</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/discount-codes">
+            <ion-icon name="barcode" slot="start"></ion-icon>
+            <ion-label>Discount Codes</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/login">
+            <ion-icon name="arrow-back-circle-outline" slot="start"></ion-icon>
+            <ion-label>Sign Out</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+
+  <ion-menu swipe-gesture="false" class="custom" side="start"  content-id="second" type="overlay">
+    <ion-header>
+      <ion-toolbar color="success">
+        <ion-title color="dark">Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item routerLink="/add-food">
+            <ion-icon name="add" slot="start"></ion-icon>
+            <ion-label>Add Food</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/view-food">
+            <ion-icon name="eye" slot="start"></ion-icon>
+            <ion-label>View Food</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/sales">
+            <ion-icon name="pricetags" slot="start"></ion-icon>
+            <ion-label>Sales</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/login">
+            <ion-icon name="arrow-back-circle-outline" slot="start"></ion-icon>
+            <ion-label>Sign Out</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="second"></ion-router-outlet>
+
+
 </ion-app>
