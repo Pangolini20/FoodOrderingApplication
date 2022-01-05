@@ -1,16 +1,28 @@
+buildscript {
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.3.7.RELEASE")
+    }
+}
+
+
 plugins {
-    id 'org.springframework.boot' version '2.5.5'
+    id 'org.springframework.boot' version '2.6.2'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id "com.palantir.docker" version "0.22.1"
+
 }
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
+
 repositories {
     mavenCentral()
 }
+
+
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -24,7 +36,25 @@ dependencies {
     implementation 'org.springdoc:springdoc-openapi-ui:1.5.11'
     implementation 'org.springframework.security:spring-security-web:4.2.3.RELEASE'
     implementation 'org.postgresql:postgresql:42.3.1'
+
 }
+
+//jar {
+//    manifest {
+//        attributes 'Main-Class': 'com.example.foodorderingapplication.FoodOrderingApplication'
+//    }
+//}
+
+docker {
+    name "testdockermsa"
+    dockerfile file('src/docker/Dockerfile')
+    copySpec.from(jar).rename(".*","app.jar")
+    buildArgs(['JAR_FILE': "app.jar"])
+
+
+}
+
+
 
 test {
     useJUnitPlatform()
