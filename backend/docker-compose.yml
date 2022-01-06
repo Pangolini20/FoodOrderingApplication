@@ -1,11 +1,11 @@
 version: '2'
 
 services:
-  backend:
+  msa:
     image: 'backend:latest'
     build:
       context: .
-    container_name: backend
+    container_name: msa-backend
     depends_on:
       - db
     ports:
@@ -20,3 +20,11 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=darius
       - POSTGRES_DB=FoodOrderingApplication
+
+  frontend:
+    image: 'frontend'
+    ports:
+      - '4200:4200'
+    container_name: frontend
+    depends_on:
+      - msa
