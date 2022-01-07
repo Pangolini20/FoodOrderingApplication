@@ -1,7 +1,7 @@
 package com.example.foodorderingapplication.services.Code;
 
-import com.example.foodorderingapplication.dto.CodeDetails;
-import com.example.foodorderingapplication.dto.CodeDto;
+import com.example.foodorderingapplication.dto.code.CodeDetails;
+import com.example.foodorderingapplication.dto.code.CodeDto;
 
 import java.util.List;
 

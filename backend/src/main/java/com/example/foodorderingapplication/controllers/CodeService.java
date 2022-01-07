@@ -1,7 +1,7 @@
 package com.example.foodorderingapplication.controllers;
 
-import com.example.foodorderingapplication.dto.CodeDetails;
-import com.example.foodorderingapplication.dto.CodeDto;
+import com.example.foodorderingapplication.dto.code.CodeDetails;
+import com.example.foodorderingapplication.dto.code.CodeDto;
 import com.example.foodorderingapplication.services.Code.CodeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
