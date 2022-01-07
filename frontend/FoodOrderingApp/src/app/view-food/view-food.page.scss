@@ -1,0 +1,22 @@
+ion-content{
+  --background: #9CA986;
+  ion-toolbar{
+   --background: #9CA986;
+  }
+
+  h1{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Lucida Calligraphy";
+  }
+
+  ion-list{
+    ion-item{
+      --background: #9CA986;
+      ion-button{
+        border-bottom-right-radius: 16px;
+       border-color: #0d0d0d;
+      }
+    }
+  }
+}
