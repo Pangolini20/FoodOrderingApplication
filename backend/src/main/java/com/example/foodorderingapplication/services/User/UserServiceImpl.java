@@ -51,6 +51,7 @@ public class UserServiceImpl implements UserService{
        String hashPassword=bCryptPasswordEncoder.encode(registerDetails.getPassword());
        user.setPasswordHash(hashPassword);
        user.setEmail(registerDetails.getEmail());
+       user.setRole(registerDetails.getRole());
 
        user.setAddress("");
        user.setTasks(Collections.emptyList());
@@ -108,6 +109,7 @@ public class UserServiceImpl implements UserService{
         user.setEmail(userProfile.getEmail());
         user.setUsername(userProfile.getUsername());
         user.setAddress(userProfile.getAddress());
+        user.setRole(userProfile.getRole());
 
         user = userRepository.save(user);
 
