@@ -42,7 +42,35 @@ const routes: Routes = [
   {
     path: 'sales',
     loadChildren: () => import('./sales/sales.module').then( m => m.SalesPageModule)
+  },  {
+    path: 'cart-modal',
+    loadChildren: () => import('./shoppingCart/cart-modal/cart-modal.module').then( m => m.CartModalPageModule)
   },
+  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+  },
+  {
+    path: 'burgers',
+    loadChildren: () => import('./burgers/burgers.module').then( m => m.BurgersPageModule)
+  },
+  {
+    path: 'pizza',
+    loadChildren: () => import('./pizza/pizza.module').then( m => m.PizzaPageModule)
+  },
+  {
+    path: 'sweets',
+    loadChildren: () => import('./sweets/sweets.module').then( m => m.SweetsPageModule)
+  },
+  {
+    path: 'drinks',
+    loadChildren: () => import('./drinks/drinks.module').then( m => m.DrinksPageModule)
+  },
+  {
+    path: 'pay',
+    loadChildren: () => import('./pay/pay.module').then( m => m.PayPageModule)
+  },
+
 
 
 ];
