@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/restaurant")
+@CrossOrigin("http://localhost:8080")
 public class RestaurantService implements RestaurantController{
 
     @Autowired
