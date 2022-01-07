@@ -1,9 +1,55 @@
 <ion-content scroll-y="false">
+  <ion-header>
   <ion-toolbar>
+    <ion-title>Restaurant name</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button (click)="_openMenuAdmin()" color="dark"></ion-menu-button>
     </ion-buttons>
 
   </ion-toolbar>
+  </ion-header>
+
+  <h1 align="center">View food</h1>
+
+  <ion-list>
+  <ion-item lines="none" *ngFor="let food of foods; let i=index">
+    <ion-thumbnail slot="start">
+      <ion-img [src]="food.photo"></ion-img>
+    </ion-thumbnail>
+
+    <ion-label>Item1 Thumbnail
+      <ion-buttons>
+        <ion-button  color="dark">Edit
+          <ion-icon slot="start" name="create"></ion-icon>
+        </ion-button>
+        <ion-button color="dark" (click)="remove(i)">Delete
+          <ion-icon slot="start" name="trash"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-label>
+  </ion-item>
+<!--    <ion-item lines="none">-->
+<!--      <ion-thumbnail slot="start">-->
+<!--      </ion-thumbnail>-->
+<!--      <ion-label>Item2 Thumbnail-->
+<!--        <ion-buttons>-->
+<!--          <ion-button  color="dark">Edit-->
+<!--            <ion-icon slot="start" name="create"></ion-icon>-->
+<!--          </ion-button>-->
+<!--          <ion-button color="dark">Delete-->
+<!--            <ion-icon slot="start" name="trash"></ion-icon>-->
+<!--          </ion-button>-->
+<!--        </ion-buttons></ion-label>-->
+<!--    </ion-item>-->
+
+<!--    <ion-item-sliding (ionSwipe)="delete(item)">-->
+
+<!--      <ion-item *ngFor="let item of items" (click)="viewItem(item)">{{item.title}}-->
+<!--      </ion-item>-->
+<!--      <ion-item-options>-->
+<!--        <button ion-button expandable (click)="removePost(post)">Delete</button>-->
+<!--      </ion-item-options>-->
+<!--    </ion-item-sliding>-->
+  </ion-list>
 </ion-content>
 
