@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Category} from "../Models/category.model";
 import {MenuController} from "@ionic/angular";
+import {Router} from "@angular/router";
+import {CartService} from "../Providers/cart.service";
+
 
 @Component({
   selector: 'app-browse',
@@ -9,14 +12,21 @@ import {MenuController} from "@ionic/angular";
 })
 export class BrowsePage implements OnInit {
   categories: Category[] = [];
-  constructor(private menu:MenuController) { }
+  constructor(private menu:MenuController, private router: Router, private cartService: CartService) { }
+  cart = [];
+  items = [];
 
   ngOnInit() {
     this.getCategories();
+    this.items = this.cartService.getProducts();
+    this.cart = this.cartService.getCart();
   }
   _openMenuClient(){
     this.menu.enable(true, 'main');
     this.menu.open('main');
+  }
+  openCart() {
+    this.router.navigate(['cart']);
   }
 
   getCategories(){
@@ -26,24 +36,28 @@ export class BrowsePage implements OnInit {
         label: 'Burgers',
         image: 'assets/images/burger.png',
         active: true,
+        path: './burgers',
       },
       {
         id: 2,
         label: 'Pizza',
         image: 'assets/images/pizza.png',
-        active: false,
+        active: true,
+        path: './pizza',
       },
       {
         id: 3,
         label: 'Sweets',
         image: 'assets/images/ice.png',
-        active: false,
+        active: true,
+        path: './sweets',
       },
       {
         id: 4,
         label: 'Drinks',
         image: 'assets/images/juice.png',
-        active: false,
+        active: true,
+        path: './drinks',
       },
     ]
   }

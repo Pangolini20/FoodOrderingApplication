@@ -28,6 +28,16 @@
    </ion-item>
 
    <ion-item>
+     <ion-label>Category:</ion-label>
+     <ion-select class="CategorySelect" [(ngModel)]="category">
+       <ion-select-option value="b">Burgers</ion-select-option>
+       <ion-select-option  value="p">Pizza</ion-select-option >
+       <ion-select-option  value="s">Sweets</ion-select-option >
+       <ion-select-option  value="d">Drinks</ion-select-option >
+     </ion-select>
+   </ion-item>
+
+   <ion-item>
      <ion-label>Description:</ion-label>
      <ion-input type="text" placeholder="Enter description for food"></ion-input>
    </ion-item>

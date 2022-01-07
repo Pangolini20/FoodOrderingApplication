@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="browse"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pay</ion-title>
+  </ion-toolbar>
+</ion-header>
+<h1 align="center">Enter your payment details</h1>
+
+
+<ion-content>
+
+  <ion-list>
+    <ion-item lines="none"  class="cards">
+
+      <ion-label>Card number:
+        <ion-card class="card-number">
+        <ion-input  type="tel" maxlength="16" placeholder="Card number"></ion-input>
+        </ion-card>
+      </ion-label>
+
+    </ion-item>
+
+    <ion-item lines="none" class="cards">
+      <ion-label>Expiration date:
+        <ion-card class="month">
+         <ion-input type="tel" placeholder="MM" maxlength="2"></ion-input>
+        </ion-card></ion-label>
+      <ion-label>
+        <ion-card class="year">
+          <ion-input type="tel" placeholder="YYYY" maxlength="4"></ion-input>
+        </ion-card>
+      </ion-label>
+
+    </ion-item>
+
+    <ion-item lines="none"  class="cards">
+      <ion-label>CVC:
+        <ion-card class="cvc">
+          <ion-input type="tel" placeholder="CVC" maxlength="3"></ion-input>
+        </ion-card>
+      </ion-label>
+    </ion-item>
+
+    <ion-item lines="none"  class="cards">
+      <ion-label>Owner name:
+        <ion-card class="owner-name">
+          <ion-input type="text" placeholder="Card owner name"></ion-input>
+        </ion-card>
+      </ion-label>
+
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    Total: <span slot="end">{{ total | currency:'USD':'symbol' }}</span>
+  </ion-item>
+
+<ion-buttons>
+  <ion-button class="finalpay" color="dark" >Pay</ion-button>
+</ion-buttons>
+</ion-content>
