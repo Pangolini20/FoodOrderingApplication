@@ -8,6 +8,7 @@ import {MenuController} from "@ionic/angular";
 })
 export class AddFoodPage implements OnInit {
 
+  category:any;
   constructor(private menu:MenuController) { }
 
   ngOnInit() {
