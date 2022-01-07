@@ -1,15 +1,34 @@
+<ion-content>
 <ion-header>
   <ion-toolbar>
-    <ion-title>Orders</ion-title>
+    <ion-title>Your orders</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button (click)="_openMenuClient()" color="dark"></ion-menu-button>
     </ion-buttons>
+
     <ion-buttons slot="end">
-      <ion-icon name="cart-outline" ></ion-icon>
+      <!--      <ion-icon name="cart-outline" ></ion-icon>-->
+      <ion-button color="dark" (click)="openCart()">
+        <ion-badge color="dark" *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
+        <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+  <ion-list>
+    <ion-item>
+    <ion-label>
+      <ion-card>
+        <ion-card-subtitle align="center">Order nr1</ion-card-subtitle>
+        <ion-card-content>
+          <ion-row>Products:</ion-row>
+          <ion-row>Total price:</ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-label>
+    </ion-item>
+
+  </ion-list>
 </ion-content>
