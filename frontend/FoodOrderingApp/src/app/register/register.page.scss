@@ -14,6 +14,7 @@ ion-content{
   border-top-left-radius: 46px;
   border-top-right-radius: 46px;
 
+
   .register-heading{
     margin-top: -40px;
     h1{
@@ -31,6 +32,13 @@ ion-content{
         padding-left:10px;
       }
 
+      .myCustomSelect{
+        position: absolute;
+        margin-top: 30px;
+        margin-left: 30px;
+        font-size: 15px;
+      }
+
       ion-icon{
         position: absolute;
         top: 37px;
@@ -46,6 +54,7 @@ ion-content{
         font-size: 0.8rem;
         top: 3px;
       }
+
 
       ion-input{
         font-size: 0.9rem;
