@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/code")
+@CrossOrigin("http://localhost:8080")
 public class CodeService implements CodeController{
 
     @Autowired
