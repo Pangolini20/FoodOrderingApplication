@@ -14,7 +14,7 @@
         <ion-icon name="person-outline"></ion-icon>
         <ion-item>
           <ion-label position="floating">USERNAME</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text" [(ngModel)]="username"></ion-input>
         </ion-item>
       </div>
       <div class="form-input">
@@ -23,9 +23,9 @@
           <ion-label position="floating">ROLE </ion-label>
 
           <ion-select class="myCustomSelect" [(ngModel)]="role">
-            <ion-select-option [value]="roles[0]">USER</ion-select-option>
-            <ion-select-option [value]="roles[1]">ADMIN</ion-select-option>
-            <ion-select-option [value]="roles[2]">DELIVERY GUY</ion-select-option>
+            <ion-select-option [value]="roles[0].toString()">USER</ion-select-option>
+            <ion-select-option [value]="roles[1].toString()">RESTAURANT_OWNER</ion-select-option>
+            <ion-select-option [value]="roles[2].toString()">DELIVERY GUY</ion-select-option>
           </ion-select>
 
         </ion-item>
@@ -34,26 +34,26 @@
         <ion-icon name="mail-outline"></ion-icon>
         <ion-item>
           <ion-label position="floating">EMAIL</ion-label>
-          <ion-input type="email"></ion-input>
+          <ion-input type="email" [(ngModel)]="email"></ion-input>
         </ion-item>
       </div>
       <div class="form-input">
         <ion-icon name="lock-closed-outline"></ion-icon>
         <ion-item>
           <ion-label position="floating">PASSWORD</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input type="password" [(ngModel)]="password"></ion-input>
         </ion-item>
       </div>
       <div class="form-input">
         <ion-icon name="lock-closed-outline"></ion-icon>
         <ion-item>
           <ion-label position="floating">CONFIRM PASSWORD</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input type="password" [(ngModel)]="confirm_password"></ion-input>
         </ion-item>
       </div>
     </div>
     <div class="register-action-buttons ion-padding">
-      <ion-button size="large" class="signup1-button">Register</ion-button>
+      <ion-button size="large" class="signup1-button" (click)="register()">Register</ion-button>
       <ion-button class="login1-button" size="small" routerLink="/login">Back to Login</ion-button>
     </div>
   </div>
