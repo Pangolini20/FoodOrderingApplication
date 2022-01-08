@@ -1,7 +1,7 @@
-import { UserLoginDetails } from './user-login-details';
+import { UserLoginCredentials } from './user-login-details';
 
 describe('UserLoginDetails', () => {
   it('should create an instance', () => {
-    expect(new UserLoginDetails()).toBeTruthy();
+    expect(new UserLoginCredentials()).toBeTruthy();
   });
 });

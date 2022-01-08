@@ -1,4 +1,8 @@
-export class UserLoginDetails {
-  username:string;
-  notHashedPassword:string;
+export class UserLoginCredentials {
+   username:string;
+   notHashedPassword:string;
+
+
+
 }
+

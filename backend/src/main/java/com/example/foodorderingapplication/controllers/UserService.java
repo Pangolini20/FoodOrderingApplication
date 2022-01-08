@@ -37,7 +37,7 @@ public class UserService implements UserController{
 
     @Override
     @GetMapping("/{id}")
-    public Optional<UserProfile> getUser(@RequestParam Long id) {
+    public Optional<UserProfile> getUser(@PathVariable(value="id") Long id) {
         Optional<UserProfile> opt = userService.getUser(id);
         if(opt.isPresent())
             return opt;
@@ -83,13 +83,14 @@ public class UserService implements UserController{
 
     @Override
     @PostMapping("/login")
-    public ResponseEntity<UserLoginCredentials> login(@RequestBody UserLoginCredentials userLoginCredentials)
+    public ResponseEntity<UserProfile> login(@RequestBody UserLoginCredentials userLoginCredentials)
     {
-        if(userService.loginCheck(userLoginCredentials) == Boolean.TRUE)
+        UserProfile u = userService.loginCheck(userLoginCredentials);
+        if(u != null)
         {
-            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+            return new ResponseEntity<UserProfile>(u,HttpStatus.ACCEPTED);
         }
         else
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(null,HttpStatus.FORBIDDEN);
     }
 }

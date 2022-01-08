@@ -1,6 +1,7 @@
 package com.example.foodorderingapplication.services.User;
 
 
+import com.example.foodorderingapplication.db.entities.Role;
 import com.example.foodorderingapplication.db.entities.User;
 import com.example.foodorderingapplication.db.repository.UserRepository;
 import com.example.foodorderingapplication.dto.restaurant.RegisterDetails;
@@ -51,6 +52,7 @@ public class UserServiceImpl implements UserService{
        String hashPassword=bCryptPasswordEncoder.encode(registerDetails.getPassword());
        user.setPasswordHash(hashPassword);
        user.setEmail(registerDetails.getEmail());
+       user.setRole(registerDetails.getRole());
 
        user.setAddress("");
        user.setTasks(Collections.emptyList());
@@ -108,6 +110,7 @@ public class UserServiceImpl implements UserService{
         user.setEmail(userProfile.getEmail());
         user.setUsername(userProfile.getUsername());
         user.setAddress(userProfile.getAddress());
+        user.setRole(userProfile.getRole());
 
         user = userRepository.save(user);
 
@@ -115,15 +118,17 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public Boolean loginCheck(UserLoginCredentials userLoginCredentials) {
+    public UserProfile loginCheck(UserLoginCredentials userLoginCredentials) {
 
         User u = userRepository.findByUsername(userLoginCredentials.getUsername());
         if(u == null)
             throw new UserNotFoundException();
 
-        if(bCryptPasswordEncoder.matches(userLoginCredentials.getNotHashedPassword(),u.getPasswordHash()))
-            return Boolean.TRUE;
 
-        return Boolean.FALSE;
+        if(bCryptPasswordEncoder.matches(userLoginCredentials.getNotHashedPassword(),u.getPasswordHash()))
+            return new UserProfile(u.getId(),u.getUsername(),u.getAddress(),u.getRole(),u.getEmail());
+        else
+            return null;
+
     }
 }
