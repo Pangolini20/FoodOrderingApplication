@@ -1,9 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from "../services/user.service";
 import {UserProfile} from "../dto/user-profile";
-import {RegisterDetails} from "../dto/register-details";
-import {Role} from "../dto/role";
 import {UserLoginCredentials} from "../dto/user-login-details";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -13,63 +12,63 @@ import {UserLoginCredentials} from "../dto/user-login-details";
 })
 export class LoginPage implements OnInit {
 
-  users:UserProfile[];
-  loginCreds : UserLoginCredentials;
-  status !: number;
-  test:RegisterDetails ;
-  userProfile:UserProfile;
+  username!:string;
+  password!:string;
 
-  constructor(private userService:UserService) {
+  userCredentials:UserLoginCredentials = new UserLoginCredentials();
+  userProfile:UserProfile = new UserProfile();
 
+  constructor(private userService:UserService,private router:Router) {
   }
 
   ngOnInit() {
-    //this.createUser();
-    //this.loginUser();
-    this.editUser();
-  }
-
-
-
-  createUser(): void
-  {
-    this.test= new RegisterDetails("darius","darius",Role.CLIENT,"darius@yahoo.com")
-    console.log(this.test)
-    this.userService.userRegister(this.test).subscribe();
-  }
-
-  editUser():void
-  {
-    this.userProfile = new UserProfile();
-    this.userProfile._id = 1;
-    this.userProfile._role = Role.DELIVERY_GUY;
-    this.userProfile._username = "daiana";
-    this.userProfile._address = "timisoara";
-    this.userProfile._email = "daiana@yahoo.com";
-
-    this.userService.editProfile(this.userProfile).subscribe()
 
   }
 
-  loginUser(): void
+  loginCheck()
   {
-    this.loginCreds = new UserLoginCredentials();
-    this.loginCreds._username='darius';
-    this.loginCreds._notHashedPassword='darius';
+    this.userCredentials.username=this.username;
+    this.userCredentials.notHashedPassword=this.password;
 
-    this.userService.userLogin(this.loginCreds)
-      .subscribe(response => {
-        if (response.status == 202)
+    console.log(this.userCredentials);
+
+    this.userService.userLogin(this.userCredentials)
+      .subscribe(userprofile => {
+
+        ///////////////////////////////////////////////////////
+        // redirect to next page and save profile somewhere
+
+        this.userProfile=this.userProfile.builder(userprofile.id,
+          userprofile.username,
+          userprofile.address,
+          userprofile.role,
+          userprofile.email)
+        //console.log(this.userProfile.role);
+        console.log("Login Succesful :)");
+
+        localStorage.setItem('currentUser',JSON.stringify(this.userProfile))
+
+        switch (this.userProfile.role.toString())
         {
-          console.log(response.status)
-          console.log("Login Succesful :)")
+          case 'CLIENT':
+          {console.log(this.userProfile.role.toString())
+            this.router.navigateByUrl('/browse')
+          }
+              break;
+          case 'RESTAURANT_OWNER':
+            console.log(this.userProfile.role.toString())
+              break;
+          case 'DELIVERY_GUY':
+            console.log(this.userProfile.role.toString())
+             break;
         }
-      });
+        ////////////////////////////////////////////////////////
 
-    // this.loginCreds._username='darius';
-    // this.loginCreds._notHashedPassword='dariussss';
-    // this.userService.userLogin(this.loginCreds).subscribe(response => console.log(response.status));
+     });
+
+
   }
+
 
 
 

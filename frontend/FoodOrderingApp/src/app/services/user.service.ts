@@ -29,9 +29,9 @@ export class UserService {
     return this.http.get<UserProfile>(`${this.userUrl}/${id}`);
   }
 
-  public userLogin(loginCredentials:UserLoginCredentials) : Observable<any>
+  public userLogin(loginCredentials:UserLoginCredentials) : Observable<UserProfile>
   {
-    return this.http.post(`${this.userUrl}/login`,loginCredentials,{observe: 'response'});
+    return this.http.post<UserProfile>(`${this.userUrl}/login`,loginCredentials);
   }
 
   public userRegister(registerDetails:RegisterDetails) : Observable<RegisterDetails>

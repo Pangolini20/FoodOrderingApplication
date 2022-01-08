@@ -23,9 +23,9 @@
           <ion-label position="floating">ROLE </ion-label>
 
           <ion-select class="myCustomSelect" [(ngModel)]="role">
-            <ion-select-option value="u">USER</ion-select-option>
-            <ion-select-option  value="a">ADMIN</ion-select-option >
-            <ion-select-option  value="dg">DELIVERY GUY</ion-select-option >
+            <ion-select-option [value]="roles[0]">USER</ion-select-option>
+            <ion-select-option [value]="roles[1]">ADMIN</ion-select-option>
+            <ion-select-option [value]="roles[2]">DELIVERY GUY</ion-select-option>
           </ion-select>
 
         </ion-item>

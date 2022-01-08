@@ -14,5 +14,5 @@ public interface UserService {
     Optional<UserProfile> getUser(Long id);
     User createUser(RegisterDetails registerDetails);
     User editUser(UserProfile userProfile);
-    Boolean loginCheck(UserLoginCredentials userLoginCredentials);
+    UserProfile loginCheck(UserLoginCredentials userLoginCredentials);
 }

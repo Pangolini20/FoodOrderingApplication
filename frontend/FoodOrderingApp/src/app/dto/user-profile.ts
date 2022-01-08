@@ -1,12 +1,21 @@
 import {Role} from "./role";
 
 export class UserProfile {
-  private id:number;
-  private username:string;
-  private address:string;
-  private role:Role;
-  private email:string;
+  id:number;
+  username:string;
+  address:string;
+  role:Role;
+  email:string;
 
+  builder(id,username,address,role,email) : UserProfile
+  {
+    this.id=id;
+    this.username=username;
+    this.address=address;
+    this.role=role;
+    this.email=email;
+    return this;
+  }
 
   set _id(value: number) {
     this.id = value;

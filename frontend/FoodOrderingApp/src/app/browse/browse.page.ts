@@ -3,6 +3,7 @@ import {Category} from "../Models/category.model";
 import {MenuController} from "@ionic/angular";
 import {Router} from "@angular/router";
 import {CartService} from "../Providers/cart.service";
+import {UserProfile} from "../dto/user-profile";
 
 
 @Component({
@@ -20,6 +21,10 @@ export class BrowsePage implements OnInit {
     this.getCategories();
     this.items = this.cartService.getProducts();
     this.cart = this.cartService.getCart();
+
+    // pastrez aici useru dupa login :D
+    console.log(localStorage.getItem('currentUser'));
+    console.log(JSON.parse(localStorage.getItem('currentUser')),new UserProfile())
   }
   _openMenuClient(){
     this.menu.enable(true, 'main');
