@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CartService} from "../Providers/cart.service";
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pay',
@@ -9,7 +10,7 @@ import {CartService} from "../Providers/cart.service";
 export class PayPage implements OnInit {
 
   input:number;
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, public alertController: AlertController) { }
   selectedItems = [];
   total=0;
 
@@ -25,6 +26,22 @@ export class PayPage implements OnInit {
     }
     this.selectedItems = Object.keys(selected).map(key => selected[key])
     this.total = this.selectedItems.reduce((a, b) => a + (b.count * b.price), 0);
+
+  }
+
+  showAlert() {
+
+    this.alertController.create({
+      header: 'Order Confirmation',
+      subHeader: '',
+      message: 'Your food will be there very soon!',
+      cssClass:'buttonCss',
+      buttons: ['OK']
+    }).then(res => {
+
+      res.present();
+
+    });
 
   }
 

@@ -1,7 +1,7 @@
 <ion-content scroll-y="false">
   <ion-header>
   <ion-toolbar>
-    <ion-title>Restaurant name</ion-title>
+    <ion-title>View food</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button (click)="_openMenuAdmin()" color="dark"></ion-menu-button>
     </ion-buttons>
@@ -9,7 +9,15 @@
   </ion-toolbar>
   </ion-header>
 
-  <h1 align="center">View food</h1>
+  <h1 align="center">Choose a restaurant</h1>
+  <ion-item class="restaurant">
+    <ion-label>Restaurant</ion-label>
+    <ion-select class="RestaurantSelect" [(ngModel)]="restaurant">
+      <ion-select-option *ngFor="let restaurant of restaurants" [value]="restaurant">
+        {{restaurant.name}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
 
   <ion-list>
   <ion-item lines="none" *ngFor="let food of foods; let i=index">
