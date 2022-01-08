@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="view-restaurants"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add a new restaurant</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card-content>
+    <p color="danger">Write a pretty name for your restaurant!</p>
+  </ion-card-content>
+
+  <ion-list lines="none">
+    <ion-item>
+      <ion-label>Name:</ion-label>
+      <ion-input type="text" placeholder="Enter name for restaurant"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button class="saveRestaurant" fill="outline" color="dark" size="large"> Save </ion-button>
+</ion-content>

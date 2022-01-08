@@ -1,24 +1,16 @@
 ion-content {
   --background: #9CA986;
-    ion-toolbar {
-      --background: #9CA986;
+  ion-toolbar {
+    --background: #9CA986;
 
-      ion-buttons {
-        ion-badge {
-          color: #fff;
-          position: absolute;
-          top: 0px;
-          right: 0px;
-          border-radius: 100%;
-        }
-
-        ion-icon {
-          width: 40px;
-          height: 30px;
-          top: -20px;
-        }
+    ion-buttons {
+      ion-icon {
+        width: 40px;
+        height: 30px;
+        top: -20px;
       }
     }
+  }
 
   //.categories{
   //  font-weight: bold;
@@ -50,12 +42,14 @@ ion-content {
     --backgound: #9CA986;
     margin-top: -10px;
   }
-  ion-textarea{
+  ion-card{
     background: #28ba62;
     border-radius: 30px;
     color: #1a1a1a;
-    font-weight: bold;
-    padding: 13px;
+    ion-card-content {
+      font-weight: bold;
+      margin-top: -10px;
+    }
   }
-  }
+}
 
