@@ -59,10 +59,6 @@ public class RestaurantServiceImpl implements  RestaurantService{
     @Override
     public List<RestaurantDTO> getOwnerRestaurants(Long id) {
         List<RestaurantDTO> restaurantDTOList = restaurantRepository.findAllRestaurants(id);
-
-        if(restaurantDTOList.isEmpty())
-            throw new NoDataFoundException();
-
         return restaurantDTOList;
     }
 

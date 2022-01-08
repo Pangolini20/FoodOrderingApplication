@@ -7,7 +7,7 @@ export class UserProfile {
   role:Role;
   email:string;
 
-  builder(id,username,address,role,email) : UserProfile
+  builder(id:number,username,address,role,email) : UserProfile
   {
     this.id=id;
     this.username=username;
