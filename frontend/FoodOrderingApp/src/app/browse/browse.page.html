@@ -6,7 +6,7 @@
     </ion-buttons>
 
     <ion-buttons slot="end">
-<!--      <ion-icon name="cart-outline" ></ion-icon>-->
+      <!--      <ion-icon name="cart-outline" ></ion-icon>-->
       <ion-button color="dark" (click)="openCart()">
         <ion-badge color="dark" *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
         <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
@@ -16,37 +16,37 @@
 
 
   <ion-slides>
-  <div class="categories">
-    <app-category-item *ngFor="let item of categories" [item]="item"></app-category-item>
-  </div>
+    <div class="categories">
+      <app-category-item *ngFor="let item of categories" [item]="item"></app-category-item>
+    </div>
   </ion-slides>
 
   <p align="center"> Search for your favourite restaurant ! </p>
 
-      <ion-toolbar>
-        <ion-label>
-          <p align="center">Mc Donald's</p>
-        </ion-label>
-        <p align="center">
-        <ion-img  src="./assets/images/mc.jpg" style="width: 50%" align="center"></ion-img>
-        </p>
-      </ion-toolbar>
+  <ion-toolbar>
+    <ion-label>
+      <p align="center">Mc Donald's</p>
+    </ion-label>
+    <p align="center">
+      <ion-img  src="./assets/images/mc.jpg" style="width: 50%" align="center"></ion-img>
+    </p>
+  </ion-toolbar>
 
-      <ion-toolbar>
-        <ion-label>
-          <p align="center">KFC</p>
-        </ion-label>
-        <p align="center">
-        <ion-img  src="./assets/images/kfc.jpg" style="width: 50%"></ion-img>
-        </p>
-      </ion-toolbar>
+  <ion-toolbar>
+    <ion-label>
+      <p align="center">KFC</p>
+    </ion-label>
+    <p align="center">
+      <ion-img  src="./assets/images/kfc.jpg" style="width: 50%"></ion-img>
+    </p>
+  </ion-toolbar>
 
   <p align="center"> And more others ! </p>
-  <ion-label>
-    <ion-textarea>
+  <ion-card>
+    <ion-card-content>
       <p align="center" >
-      Don't forget to check the discount codes!
+        Don't forget to check the discount codes!
       </p>
-    </ion-textarea>
-  </ion-label>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
