@@ -44,10 +44,6 @@ const routes: Routes = [
     loadChildren: () => import('./sales/sales.module').then(m => m.SalesPageModule)
   },
   {
-    path: 'cart-modal',
-    loadChildren: () => import('./shoppingCart/cart-modal/cart-modal.module').then( m => m.CartModalPageModule)
-  },
-  {
     path: 'cart',
     loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
   },
@@ -70,7 +66,8 @@ const routes: Routes = [
   {
     path: 'pay',
     loadChildren: () => import('./pay/pay.module').then( m => m.PayPageModule)
-  },  {
+  },
+  {
     path: 'view-restaurants',
     loadChildren: () => import('./view-restaurants/view-restaurants.module').then( m => m.ViewRestaurantsPageModule)
   },
