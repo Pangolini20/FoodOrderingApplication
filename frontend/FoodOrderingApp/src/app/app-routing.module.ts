@@ -70,7 +70,15 @@ const routes: Routes = [
   {
     path: 'pay',
     loadChildren: () => import('./pay/pay.module').then( m => m.PayPageModule)
+  },  {
+    path: 'view-restaurants',
+    loadChildren: () => import('./view-restaurants/view-restaurants.module').then( m => m.ViewRestaurantsPageModule)
   },
+  {
+    path: 'add-restaurant',
+    loadChildren: () => import('./add-restaurant/add-restaurant.module').then( m => m.AddRestaurantPageModule)
+  },
+
 
 
 

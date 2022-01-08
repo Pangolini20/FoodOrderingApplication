@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Your restaurants</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button (click)="_openMenuAdmin()" color="dark"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <ion-card>
+          <ion-card-subtitle align="center">Restaurant nr</ion-card-subtitle>
+          <ion-card-content>
+            <ion-row>Name:</ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+    <ion-button class="addRestaurant" fill="outline" color="dark" size="small" routerLink="/add-restaurant"> Add restaurant </ion-button>
+</ion-content>

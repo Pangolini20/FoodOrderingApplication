@@ -1,0 +1,13 @@
+ion-toolbar{
+  --background: #9CA986;
+}
+ion-content{
+  .addRestaurant {
+    margin-top: 20px;
+    background: #9CA986;
+    width: 40%;
+    font-weight: bold;
+    margin-left: 30%;
+    border-radius: 9px;
+  }
+}
