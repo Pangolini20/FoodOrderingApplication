@@ -27,7 +27,7 @@ public class FoodService implements FoodController{
 
     @Override
     @PostMapping("/{id}")
-    public ResponseEntity<FoodDto> createFood(Long id,@RequestBody FoodDetails foodDetails) {
+    public ResponseEntity<FoodDto> createFood(@PathVariable("id") Long id,@RequestBody FoodDetails foodDetails) {
         return new ResponseEntity<FoodDto>(foodService.createFood(id,foodDetails), HttpStatus.CREATED);
     }
 

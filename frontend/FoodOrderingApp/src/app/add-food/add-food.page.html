@@ -22,6 +22,16 @@
 
  <ion-list lines="none">
 
+   <ion-item>
+     <ion-label>Restaurant</ion-label>
+     <ion-select class="RestaurantSelect" [(ngModel)]="restaurantId">
+       <ion-select-option *ngFor="let restaurant of restaurants" [value]="restaurant.id">
+        {{restaurant.name}}
+       </ion-select-option>
+
+     </ion-select>
+   </ion-item>
+
    <ion-item style="text-align: left">
      <ion-label>Name:</ion-label>
      <ion-input type="text" placeholder="Enter name for food" [(ngModel)]="name" ></ion-input>
@@ -30,10 +40,9 @@
    <ion-item>
      <ion-label>Category:</ion-label>
      <ion-select class="CategorySelect" [(ngModel)]="category">
-       <ion-select-option [value]="">Burgers</ion-select-option>
-       <ion-select-option  [value]="">Pizza</ion-select-option >
-       <ion-select-option  [value]="">Sweets</ion-select-option >
-       <ion-select-option  [value]="">Drinks</ion-select-option >
+       <ion-select-option *ngFor="let category of categories" >
+         {{category.toString()}}
+       </ion-select-option>
      </ion-select>
    </ion-item>
 

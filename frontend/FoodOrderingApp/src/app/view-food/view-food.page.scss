@@ -5,11 +5,18 @@ ion-content{
   }
 
   h1{
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold;
     font-family: "Lucida Calligraphy";
   }
+ .restaurant{
+   --background: #9CA986;
+   ion-label{
+     font-weight: bold;
+   }
 
+
+ }
   ion-list{
     ion-item{
       --background: #9CA986;

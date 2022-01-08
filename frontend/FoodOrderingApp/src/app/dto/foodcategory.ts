@@ -1,3 +1,6 @@
 export enum Foodcategory {
-  PIZZA, FAST_FOOD, SOUP,
+  BURGERS= 'BURGERS',
+  PIZZA = 'PIZZA',
+  SWEETS = 'SWEETS',
+  DRINKS = 'DRINKS'
 }
