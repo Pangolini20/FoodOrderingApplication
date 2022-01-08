@@ -65,7 +65,7 @@ public interface UserController {
             @ApiResponse(responseCode = "403", description = "Wrong username or password",content = @Content),
             @ApiResponse(responseCode = "404", description = "Username does not exist",content = @Content)
     })
-    ResponseEntity<UserLoginCredentials> login(UserLoginCredentials userLoginCredentials);
+    ResponseEntity<UserProfile> login(UserLoginCredentials userLoginCredentials);
 
 
 
