@@ -3,6 +3,7 @@ ion-content {
     --background: #9CA986;
   ion-title{
     font-family: "Lucida Calligraphy";
+    font-size: 15px;
 
   }
     ion-buttons {
@@ -34,10 +35,13 @@ ion-content {
      .CategorySelect{
        margin-right: 35%;
        font-size: 17px;
-
+     }
+     .RestaurantSelect{
+       margin-right: 20%;
+       font-size: 17px;
      }
      ion-label{
-      font-size: 20px;
+      font-size: 17px;
        ion-input{
          font-size: 20px;
          border: #0d0d0d;
