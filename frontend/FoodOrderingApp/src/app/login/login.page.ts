@@ -56,7 +56,9 @@ export class LoginPage implements OnInit {
           }
               break;
           case 'RESTAURANT_OWNER':
-            console.log(this.userProfile.role.toString())
+          { console.log(this.userProfile.role.toString())
+            this.router.navigateByUrl('/view-restaurants')
+          }
               break;
           case 'DELIVERY_GUY':
             console.log(this.userProfile.role.toString())
