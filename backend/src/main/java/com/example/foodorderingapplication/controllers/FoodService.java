@@ -32,8 +32,8 @@ public class FoodService implements FoodController{
     }
 
     @Override
-    @PutMapping
-    public ResponseEntity<FoodDto> editFood(Long id, FoodDetails foodDetails) {
+    @PutMapping("/{id}")
+    public ResponseEntity<FoodDto> editFood(@PathVariable(value = "id") Long id, FoodDetails foodDetails) {
         return new ResponseEntity<FoodDto>(foodService.editFood(id,foodDetails),HttpStatus.OK);
     }
 
