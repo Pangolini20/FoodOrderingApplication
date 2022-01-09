@@ -20,8 +20,8 @@ public class FoodService implements FoodController{
     private FoodServiceImpl foodService;
 
     @Override
-    @GetMapping("/{id}")
-    public List<FoodDto> getFoodByRestaurant(Long id) {
+    @GetMapping("restaurant/{id}")
+    public List<FoodDto> getFoodByRestaurant(@PathVariable(value = "id") Long id) {
         return foodService.getAllFoodByRestaurant(id);
     }
 

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuController, NavController} from "@ionic/angular";
+import {FoodDto} from "../dto/food-dto";
+import {RestaurantDto} from "../dto/restaurant-dto";
+import {FoodService} from "../services/food.service";
+import {RestaurantService} from "../services/restaurant.service";
+import {UserProfile} from "../dto/user-profile";
 
 
 @Component({
@@ -9,36 +14,31 @@ import {MenuController, NavController} from "@ionic/angular";
 })
 export class ViewFoodPage implements OnInit {
 
+
+  foodList?:FoodDto[];
+  restaurantList?:RestaurantDto[];
+  ownerProfile:UserProfile=JSON.parse(localStorage.getItem("currentUser"));
+
   foods: Array<{}>;
   restaurant:any;
 
-  constructor(private menu:MenuController, public navCtrl: NavController) {
-    this.foods = [
-      {
-          id:1,
-          photo:'img1',
-          name:'ok',
-          category: 'Burger',
-          description: 'Cheese',
-          price: 10
-      }
-      ]
+  constructor(private menu:MenuController,
+              public navCtrl: NavController,
+              private foodService:FoodService,
+              private restaurantService:RestaurantService) {
+
+    restaurantService.getRestaurantsByOwnerId(this.ownerProfile.id).subscribe(list => this.restaurantList = list);
   }
-
-
-  restaurants=[
-    {
-      id:1,
-      name: 'Restaurant1',
-    },
-    {
-      id:2,
-      name: 'Restaurant2',
-    },
-  ]
 
   ngOnInit() {
+
   }
+
+  onChange(restaurantId)
+  {
+    this.foodService.getFoodByRestaurantId(restaurantId).subscribe( list => this.foodList = list);
+  }
+
 
   _openMenuAdmin(){
     this.menu.enable(true, 'second');

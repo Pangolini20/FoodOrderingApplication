@@ -23,7 +23,7 @@ export class FoodService {
 
   getFoodByRestaurantId(id : number) : Observable<FoodDto[]>
   {
-    return this.http.get<FoodDto[]>(`${this.foodURL}/${id}`)
+    return this.http.get<FoodDto[]>(`${this.foodURL}/restaurant/${id}`)
   }
 
   getFoodByCategory(category :string): Observable<FoodDto[]>
