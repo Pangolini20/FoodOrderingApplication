@@ -1,0 +1,31 @@
+ion-content{
+ion-toolbar {
+  --background: #9CA986;
+}
+
+
+  ion-list {
+    ion-item {
+      padding-top: 30px;
+      .CategorySelect{
+        margin-right: 35%;
+        font-size: 17px;
+      }
+      ion-label{
+        font-size: 17px;
+        ion-input{
+          font-size: 20px;
+          border: #0d0d0d;
+        }
+      }
+    }
+  }
+
+  .save{
+    background: #9CA986 ;
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 8%;
+    border-radius: 9px;
+  }
+}
