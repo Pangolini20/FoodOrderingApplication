@@ -19,7 +19,6 @@ export class ViewFoodPage implements OnInit {
   restaurantList?:RestaurantDto[];
   ownerProfile:UserProfile=JSON.parse(localStorage.getItem("currentUser"));
 
-  foods: Array<{}>;
   restaurant:any;
 
   constructor(private menu:MenuController,
@@ -45,8 +44,8 @@ export class ViewFoodPage implements OnInit {
     this.menu.open('second');
   }
 
-  remove(no){
-    this.foods.splice(no,1);
+  remove(){
+    // this.foodService.deleteFood(foodId);
   }
 
 

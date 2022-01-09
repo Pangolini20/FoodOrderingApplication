@@ -30,7 +30,7 @@ export class AddFoodPage implements OnInit {
               private foodService:FoodService,
               private restaurantService:RestaurantService,
               private router:Router) {
-    this.restaurantService.getRestaurantsByOwnerId(this.owner.id).subscribe(x => this.restaurants = x );
+    this.restaurantService.getRestaurantsByOwnerId(this.owner.id).subscribe(x => this.restaurants = x);
   }
 
 
