@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MenuController} from "@ionic/angular";
 import {Router} from "@angular/router";
 import {CartService} from "../Providers/cart.service";
+import { Clipboard } from '@ionic-native/clipboard/ngx';
 
 @Component({
   selector: 'app-discount-codes',
@@ -10,9 +11,10 @@ import {CartService} from "../Providers/cart.service";
 })
 export class DiscountCodesPage implements OnInit {
 
-  constructor(private menu:MenuController, private router: Router, private cartService: CartService) { }
+  constructor(private menu:MenuController, private router: Router, private cartService: CartService,private cb: Clipboard) { }
   cart = [];
   items = [];
+  textCopy:string = "Forget the failures.";
   ngOnInit() {
     this.items = this.cartService.getProducts();
     this.cart = this.cartService.getCart();
@@ -27,6 +29,11 @@ export class DiscountCodesPage implements OnInit {
   _openMenuClient(){
     this.menu.enable(true, 'main');
     this.menu.open('main');
+  }
+
+  copyCode(){
+      this.cb.copy(this.textCopy);
+      console.log("Copy text");
   }
 
 }

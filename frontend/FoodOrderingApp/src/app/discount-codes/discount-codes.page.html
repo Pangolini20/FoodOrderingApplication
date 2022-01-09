@@ -20,7 +20,10 @@
    <ion-label>
   <ion-card>
     <ion-card-title align="center">Restaurant name1</ion-card-title>
-    <ion-card-content>discount info</ion-card-content>
+    <ion-card-content>
+      <ion-row class="discounts">Discount code:</ion-row>
+      <ion-button class="copyCode" (click)="copyCode()" color="dark" size="small">Copy Code</ion-button>
+    </ion-card-content>
   </ion-card>
    </ion-label>
  </ion-list>

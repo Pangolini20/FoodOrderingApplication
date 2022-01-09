@@ -23,11 +23,20 @@ ion-content {
     ion-card{
       --background: #9CA986;
       ion-card-title{
-        font-size: 20px;
+        font-size: 16px;
       }
       ion-card-content{
         color: #0d0d0d;
         font-size: 16px;
+        discounts{
+          -webkit-user-select: text;
+          -moz-user-select: text;
+          -ms-user-select: text;
+          user-select: text;
+        }
+        .copyCode{
+          margin-left: 40%;
+        }
       }
     }
   }
