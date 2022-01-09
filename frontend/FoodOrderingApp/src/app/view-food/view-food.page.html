@@ -12,25 +12,25 @@
   <h1 align="center">Choose a restaurant</h1>
   <ion-item class="restaurant">
     <ion-label>Restaurant</ion-label>
-    <ion-select class="RestaurantSelect" [(ngModel)]="restaurant">
-      <ion-select-option *ngFor="let restaurant of restaurants" [value]="restaurant">
+    <ion-select class="RestaurantSelect" [(ngModel)]="restaurant" (ionChange)="onChange(restaurant.id)">
+      <ion-select-option *ngFor="let restaurant of restaurantList" [value]="restaurant"  >
         {{restaurant.name}}
       </ion-select-option>
     </ion-select>
   </ion-item>
 
   <ion-list>
-  <ion-item lines="none" *ngFor="let food of foods; let i=index">
+  <ion-item lines="none" *ngFor="let food of foodList; let i=index">
     <ion-thumbnail slot="start">
-      <ion-img [src]="food.photo"></ion-img>
+      <ion-img [src]=""></ion-img>
     </ion-thumbnail>
 
-    <ion-label>Item1 Thumbnail
+    <ion-label>{{food.name}}
       <ion-buttons>
         <ion-button  color="dark">Edit
           <ion-icon slot="start" name="create"></ion-icon>
         </ion-button>
-        <ion-button color="dark" (click)="remove(i)">Delete
+        <ion-button color="dark" (click)="remove()">Delete
           <ion-icon slot="start" name="trash"></ion-icon>
         </ion-button>
       </ion-buttons>
