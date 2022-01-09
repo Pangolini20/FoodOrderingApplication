@@ -19,6 +19,7 @@ export class ViewFoodPage implements OnInit {
   restaurantList?:RestaurantDto[];
   ownerProfile:UserProfile=JSON.parse(localStorage.getItem("currentUser"));
 
+
   restaurant:any;
 
   constructor(private menu:MenuController,
@@ -30,7 +31,6 @@ export class ViewFoodPage implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   onChange(restaurantId)
@@ -38,14 +38,14 @@ export class ViewFoodPage implements OnInit {
     this.foodService.getFoodByRestaurantId(restaurantId).subscribe( list => this.foodList = list);
   }
 
-
   _openMenuAdmin(){
     this.menu.enable(true, 'second');
     this.menu.open('second');
   }
 
-  remove(){
-    // this.foodService.deleteFood(foodId);
+  remove(foodId:number,i){ // nu se sterge din frontend
+    console.log(foodId)
+    this.foodService.deleteFood(foodId).subscribe();
   }
 
 

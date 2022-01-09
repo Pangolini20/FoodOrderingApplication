@@ -16,9 +16,9 @@ export class FoodService {
     this.foodURL=`${environment.baseUrl}/food`
   }
 
-  deleteFood(id : number)
+  deleteFood(id : number) : Observable<FoodDto>
   {
-    this.http.delete(`${this.foodURL}/${id}`)
+    return this.http.delete<FoodDto>(`${this.foodURL}/${id}`)
   }
 
   getFoodByRestaurantId(id : number) : Observable<FoodDto[]>

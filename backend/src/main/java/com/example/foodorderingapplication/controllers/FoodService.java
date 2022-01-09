@@ -38,8 +38,8 @@ public class FoodService implements FoodController{
     }
 
     @Override
-    @DeleteMapping
-    public void deleteFood(Long id) {
+    @DeleteMapping("/{id}")
+    public void deleteFood(@PathVariable(value = "id") Long id) {
         foodService.deleteFood(id);
     }
 
