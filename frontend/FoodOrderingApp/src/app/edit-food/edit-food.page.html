@@ -1,0 +1,48 @@
+<ion-content scroll-y="false">
+  <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="view-food"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit food</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+  <ion-list lines="none">
+
+    <ion-item style="text-align: left">
+      <ion-label>Photo:</ion-label>
+      <ion-input type="file" placeholder="Upload new photo for food" [(ngModel)]="photo" ></ion-input>
+<!--      <ion-button fill="outline" color="dark" size="default">Upload</ion-button>-->
+    </ion-item>
+
+    <ion-item style="text-align: left">
+      <ion-label>Name:</ion-label>
+      <ion-input type="text" placeholder="Enter new name for food" [(ngModel)]="name" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Category:</ion-label>
+      <ion-select class="CategorySelect" [(ngModel)]="category">
+        <ion-select-option *ngFor="let category of categories" >
+          {{category.toString()}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Description:</ion-label>
+      <ion-input type="text" placeholder="Enter new description for food" [(ngModel)]="description"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Price:</ion-label>
+      <ion-input type="number" placeholder="Enter new price for food" [(ngModel)]="price"></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <ion-button class="save" fill="outline" color="dark" size="small" (click)="saveFood()"> Save </ion-button>
+</ion-content>
+
