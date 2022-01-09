@@ -1,7 +1,8 @@
 package com.example.foodorderingapplication.db.entities;
 
 public enum Category {
+    BURGERS,
     PIZZA,
-    FAST_FOOD,
-    SOUP
+    SWEETS,
+    DRINKS
 }

@@ -9,12 +9,12 @@
 
 <ion-content>
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let r of ownedRestaurants">
       <ion-label>
         <ion-card>
-          <ion-card-subtitle align="center">Restaurant nr</ion-card-subtitle>
+          <ion-card-subtitle align="center">Restaurant nr {{r.id}}</ion-card-subtitle>
           <ion-card-content>
-            <ion-row>Name:</ion-row>
+            <ion-row>Name:{{r.name}}</ion-row>
           </ion-card-content>
         </ion-card>
       </ion-label>
@@ -22,3 +22,6 @@
   </ion-list>
     <ion-button class="addRestaurant" fill="outline" color="dark" size="small" routerLink="/add-restaurant"> Add restaurant </ion-button>
 </ion-content>
+
+
+

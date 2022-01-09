@@ -38,7 +38,7 @@ public class RestaurantService implements RestaurantController{
 
     @Override
     @GetMapping("/owner/{id}")
-    public List<RestaurantDTO> getRestaurantByOwner(Long id) {
+    public List<RestaurantDTO> getRestaurantByOwner(@PathVariable(value="id") Long id) {
 
         List<RestaurantDTO> restaurantDTOList = restaurantService.getOwnerRestaurants(id);
 
