@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+<!--      {{restaurant.name}}-->
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="browse"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="cart" type="" color="dark" (click)="openCart()">
+        <ion-badge color="dark" *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
+        <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let cat of items" class="category-block">
+    <div *ngIf="cat.category == 'Pizza'"> <!-- Verificare daca e din restaurantu asta mancarea, daca da afisare-->
+      <ion-col (click)="!cat.expanded" >
+      </ion-col>
+
+      <ion-slides [options]="sliderConfig">
+        <ion-slide *ngFor="let product of cat.products">
+          <div *ngIf="cat.expanded">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>
+                  {{ product.name }} - ${{ product.price }}
+                </ion-card-title>
+                <ion-card-content>
+                  <img src="https://via.placeholder.com/300x300">
+                  <ion-buttons>
+                    <ion-button color="dark" expand="full" (click)="addToCart(product)">Add to Cart</ion-button>
+                  </ion-buttons>
+                </ion-card-content>
+              </ion-card-header>
+            </ion-card>
+
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+</ion-content>
