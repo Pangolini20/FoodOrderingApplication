@@ -6,6 +6,7 @@ public class CodeDto {
     private String name;
     private Long value;
     private String expirationDate;
+    private String restaurantName;
 
     public CodeDto() {
     }
@@ -14,12 +15,21 @@ public class CodeDto {
         this.id = id;
     }
 
-    public CodeDto(Long id, Long restaurantId, String name, Long value, String expirationDate) {
+    public CodeDto(Long id, Long restaurantId, String name, Long value, String expirationDate,String restaurantName) {
         this.id = id;
         this.restaurantId = restaurantId;
         this.name = name;
         this.value = value;
         this.expirationDate = expirationDate;
+        this.restaurantName = restaurantName;
+    }
+
+    public String getRestaurantName() {
+        return restaurantName;
+    }
+
+    public void setRestaurantName(String restaurantName) {
+        this.restaurantName = restaurantName;
     }
 
     public Long getId() {

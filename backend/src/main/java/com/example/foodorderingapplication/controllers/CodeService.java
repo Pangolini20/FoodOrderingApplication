@@ -41,4 +41,10 @@ public class CodeService implements CodeController{
     public List<CodeDto> getCodesFromRestaurant(@PathVariable(value = "id") Long id) {
         return codeService.getRestaurantCodes(id);
     }
+
+    @Override
+    @GetMapping("/all")
+    public List<CodeDto> getallCodes() {
+        return codeService.getAllCodes();
+    }
 }
