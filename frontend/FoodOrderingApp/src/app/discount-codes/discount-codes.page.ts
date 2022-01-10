@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MenuController} from "@ionic/angular";
 import {Router} from "@angular/router";
 import {CartService} from "../Providers/cart.service";
-import {FoodDto} from "../dto/food-dto";
-import {RestaurantDto} from "../dto/restaurant-dto";
+import { Clipboard } from '@ionic-native/clipboard/ngx';
 import {CodeDto} from "../dto/code-dto";
 import {CodeService} from "../services/code.service";
 
@@ -14,7 +13,22 @@ import {CodeService} from "../services/code.service";
 })
 export class DiscountCodesPage implements OnInit {
 
-  constructor(private menu:MenuController, private router: Router, private cartService: CartService) { }
+
+  codeList:CodeDto[];
+
+  constructor(private menu:MenuController,
+              private router: Router,
+              private cartService: CartService,
+              private cb: Clipboard,
+              private codeService:CodeService)
+  {
+    this.codeService.getAllCodes().subscribe(codes =>
+    {
+      //date sort incoming
+      this.codeList=codes;
+    })
+  }
+
   cart = [];
   items = [];
 
@@ -34,8 +48,8 @@ export class DiscountCodesPage implements OnInit {
     this.menu.enable(true, 'main');
     this.menu.open('main');
   }
- addCart(){
+ addCode(){
 
- }
+  }
 
 }

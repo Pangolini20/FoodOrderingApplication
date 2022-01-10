@@ -17,6 +17,11 @@ export class CodeService {
     this.codeURL=`${environment.baseUrl}/code`
   }
 
+  getAllCodes():Observable<CodeDto[]>
+  {
+    return this.http.get<CodeDto[]>(`${this.codeURL}/all`);
+  }
+
   deleteCode(id:number):Observable<any>
   {
     return this.http.delete<any>(`${this.codeURL}/${id}`);

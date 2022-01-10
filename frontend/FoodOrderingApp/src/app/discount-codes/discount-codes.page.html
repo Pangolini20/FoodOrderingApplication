@@ -16,13 +16,17 @@
 </ion-header>
 
 
- <ion-list>
+ <ion-list *ngFor="let code of codeList">
    <ion-label>
   <ion-card>
-    <ion-card-title align="center">Restaurant name1</ion-card-title>
+    <ion-card-title align="center">{{code.restaurantName}}</ion-card-title>
     <ion-card-content>
-      <ion-row class="discounts">Discount code:</ion-row>
-      <ion-button class="copyCode" (click)="addCart()" color="dark" size="small">Add to cart</ion-button>
+
+      <ion-row class="discounts">Discount code:{{code.name}}</ion-row>
+      <ion-row class="discounts">{{code.value}}%</ion-row>
+      <ion-row class="discounts">Expiration date:{{code.expirationDate}}</ion-row>
+      <ion-button class="copyCode" (click)="addCode()" color="dark" size="small">Copy Code</ion-button>
+
     </ion-card-content>
   </ion-card>
    </ion-label>

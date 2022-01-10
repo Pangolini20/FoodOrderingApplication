@@ -4,6 +4,8 @@ import {MenuController} from "@ionic/angular";
 import {Router} from "@angular/router";
 import {CartService} from "../Providers/cart.service";
 import {UserProfile} from "../dto/user-profile";
+import {RestaurantDto} from "../dto/restaurant-dto";
+import {RestaurantService} from "../services/restaurant.service";
 
 
 @Component({
@@ -11,9 +13,14 @@ import {UserProfile} from "../dto/user-profile";
   templateUrl: './browse.page.html',
   styleUrls: ['./browse.page.scss'],
 })
+
 export class BrowsePage implements OnInit {
   categories: Category[] = [];
-  constructor(private menu:MenuController, private router: Router, private cartService: CartService) { }
+
+  restaurantList:RestaurantDto[];
+  constructor(private menu:MenuController, private router: Router, private cartService: CartService,private restaurantService:RestaurantService) {
+    this.restaurantService.getAllRestaurants().subscribe(x => this.restaurantList = x.slice(0,3))
+  }
   cart = [];
   items = [];
 
