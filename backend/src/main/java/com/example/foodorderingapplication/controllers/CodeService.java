@@ -20,25 +20,25 @@ public class CodeService implements CodeController{
 
     @PostMapping("/{id}")
     @Override
-    public ResponseEntity<CodeDto> createCode(Long id, CodeDetails codeDetails) {
+    public ResponseEntity<CodeDto> createCode(@PathVariable(value = "id") Long id, CodeDetails codeDetails) {
         return new ResponseEntity<>(codeService.createCode(id,codeDetails),HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     @Override
-    public ResponseEntity<CodeDto> editCode(Long id, CodeDetails codeDetails) {
+    public ResponseEntity<CodeDto> editCode(@PathVariable(value = "id") Long id, CodeDetails codeDetails) {
         return new ResponseEntity<>(codeService.editCode(id,codeDetails),HttpStatus.OK);
     }
 
     @Override
     @DeleteMapping("/{id}")
-    public void deleteCode(Long id) {
+    public void deleteCode(@PathVariable(value = "id") Long id) {
         codeService.deleteCode(id);
     }
 
     @Override
-    @GetMapping("/")
-    public List<CodeDto> getCodesFromRestaurant(Long id) {
+    @GetMapping("/{id}")
+    public List<CodeDto> getCodesFromRestaurant(@PathVariable(value = "id") Long id) {
         return codeService.getRestaurantCodes(id);
     }
 }

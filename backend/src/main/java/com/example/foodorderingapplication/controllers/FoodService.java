@@ -33,13 +33,14 @@ public class FoodService implements FoodController{
 
     @Override
     @PutMapping("/{id}")
-    public ResponseEntity<FoodDto> editFood(@PathVariable(value = "id") Long id, FoodDetails foodDetails) {
+    public ResponseEntity<FoodDto> editFood(@PathVariable(value = "id") Long id,@RequestBody FoodDetails foodDetails) {
+        System.out.println(foodDetails.toString());
         return new ResponseEntity<FoodDto>(foodService.editFood(id,foodDetails),HttpStatus.OK);
     }
 
     @Override
-    @DeleteMapping
-    public void deleteFood(Long id) {
+    @DeleteMapping("/{id}")
+    public void deleteFood(@PathVariable(value = "id") Long id) {
         foodService.deleteFood(id);
     }
 
