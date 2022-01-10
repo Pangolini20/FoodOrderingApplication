@@ -13,6 +13,7 @@ import {CodeService} from "../services/code.service";
 })
 export class DiscountCodesPage implements OnInit {
 
+
   codeList:CodeDto[];
 
   constructor(private menu:MenuController,
@@ -24,12 +25,13 @@ export class DiscountCodesPage implements OnInit {
     this.codeService.getAllCodes().subscribe(codes =>
     {
       //date sort incoming
-      this.codeList=codes
+      this.codeList=codes;
     })
   }
+
   cart = [];
   items = [];
-  textCopy:string = "Forget the failures.";
+
   ngOnInit() {
     this.items = this.cartService.getProducts();
     this.cart = this.cartService.getCart();
@@ -46,10 +48,8 @@ export class DiscountCodesPage implements OnInit {
     this.menu.enable(true, 'main');
     this.menu.open('main');
   }
+ addCode(){
 
-  copyCode(){
-      this.cb.copy(this.textCopy);
-      console.log(this.textCopy);
   }
 
 }

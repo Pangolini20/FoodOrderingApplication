@@ -13,6 +13,9 @@
       {{ item.count }}x {{ item.name }} - {{ item.price | currency:'USD':'symbol' }}
       <ion-label slot="end">{{ (item.price * item.count) | currency:'USD':'symbol' }}</ion-label>
     </ion-item>
+    <ion-item class="discount">  <! aici trb un ng for asa :  *ngfor="let code of Codes" -->
+      Discount: <span slot="end">  - {{ discount | currency:'USD':'symbol' }}</span>
+    </ion-item>
     <ion-item class="total">
       Total: <span slot="end">{{ total | currency:'USD':'symbol' }}</span>
     </ion-item>

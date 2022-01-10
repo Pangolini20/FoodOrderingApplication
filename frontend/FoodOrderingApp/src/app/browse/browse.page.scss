@@ -2,6 +2,13 @@ ion-content {
   --background: #9CA986;
   ion-toolbar {
     --background: #9CA986;
+    ion-badge {
+      color: #fff;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      border-radius: 100%;
+    }
 
     ion-buttons {
       ion-icon {
