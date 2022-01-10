@@ -2,7 +2,7 @@
   <div class="image-card">
     <ion-buttons slot="start">
 
-      <ion-button  [href]="item.path"></ion-button>
+      <ion-button (click)="goToCategory()" ></ion-button>
       <ion-img [src]="item.image"></ion-img>
     </ion-buttons>
   </div>

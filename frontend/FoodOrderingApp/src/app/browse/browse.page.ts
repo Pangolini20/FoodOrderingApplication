@@ -19,7 +19,7 @@ export class BrowsePage implements OnInit {
 
   restaurantList:RestaurantDto[];
   constructor(private menu:MenuController, private router: Router, private cartService: CartService,private restaurantService:RestaurantService) {
-    this.restaurantService.getAllRestaurants().subscribe(x => this.restaurantList = x.slice(0,3))
+    this.restaurantService.getAllRestaurants().subscribe(x => this.restaurantList = x)
   }
   cart = [];
   items = [];
@@ -39,6 +39,9 @@ export class BrowsePage implements OnInit {
   }
   openCart() {
     this.router.navigate(['cart']);
+  }
+  goToRestaurant(){
+    this.router.navigateByUrl('/restaurant');
   }
 
   getCategories(){
