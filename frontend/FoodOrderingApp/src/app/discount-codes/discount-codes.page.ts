@@ -48,8 +48,9 @@ export class DiscountCodesPage implements OnInit {
     this.menu.enable(true, 'main');
     this.menu.open('main');
   }
- addCode(){
-
+ addCode(code){
+  localStorage.setItem("discountCode", code );
+  console.log(code);
   }
 
 }

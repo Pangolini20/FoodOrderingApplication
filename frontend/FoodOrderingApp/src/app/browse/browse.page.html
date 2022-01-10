@@ -23,13 +23,18 @@
 
   <p align="center"> Search for your favourite restaurant ! </p>
 
-  <ion-toolbar *ngFor="let r of restaurantList">
-    <ion-label>
 
-        <p align="center">{{r.name}}</p>
-
-    </ion-label>
+  <ion-content scroll-y="true">
+<ion-list>
+  <ion-toolbar class="ion-no-border" *ngFor="let r of restaurantList">
+    <ion-buttons>
+      <ion-icon name="pizza"></ion-icon>
+        <ion-button size="large" color="dark" (click)="goToRestaurant()">{{r.name}}</ion-button>
+    </ion-buttons>
   </ion-toolbar>
+</ion-list>
+  </ion-content>
+
 
 <!--  <ion-toolbar>-->
 <!--    <ion-label>-->
@@ -48,13 +53,15 @@
 <!--      <ion-img  src="./assets/images/kfc.jpg" style="width: 50%"></ion-img>-->
 <!--    </p>-->
 <!--  </ion-toolbar>-->
-
-  <p align="center"> And more others ! </p>
-  <ion-card>
-    <ion-card-content>
-      <p align="center" >
-        Don't forget to check the discount codes!
-      </p>
-    </ion-card-content>
-  </ion-card>
 </ion-content>
+<!--<ion-content style="min-height: 10%"  scroll-y="false">-->
+<!--  <ion-card>-->
+<!--  <p align="center"> And more others ! </p>-->
+<!--    <ion-card-content>-->
+<!--      <p align="center" >-->
+<!--        Don't forget to check the discount codes!-->
+<!--      </p>-->
+<!--    </ion-card-content>-->
+<!--  </ion-card>-->
+<!--</ion-content>-->
+
