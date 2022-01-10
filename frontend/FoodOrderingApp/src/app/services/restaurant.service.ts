@@ -16,9 +16,9 @@ export class RestaurantService {
 
   }
 
-  getAllRestaurants() : Observable<RestaurantDto>
+  getAllRestaurants() : Observable<RestaurantDto[]>
   {
-    return this.http.get<RestaurantDto>(this.restaurantURL);
+    return this.http.get<RestaurantDto[]>(this.restaurantURL);
   }
 
   getRestaurantsByOwnerId(id : number) : Observable<RestaurantDto[]>

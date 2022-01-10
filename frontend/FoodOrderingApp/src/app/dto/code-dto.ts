@@ -4,4 +4,5 @@ export class CodeDto {
   name:string;
   value:number;
   expirationDate:string;
+  restaurantName:string;
 }

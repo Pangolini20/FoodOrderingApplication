@@ -10,4 +10,5 @@ public interface CodeService {
     CodeDto createCode(Long id,CodeDetails codeDetails);
     CodeDto editCode(Long id,CodeDetails codeDetails);
     void deleteCode(Long id);
+    List<CodeDto> getAllCodes();
 }

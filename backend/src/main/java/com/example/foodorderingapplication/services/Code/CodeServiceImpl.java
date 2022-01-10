@@ -23,6 +23,11 @@ public class CodeServiceImpl implements CodeService {
     RestaurantRepository restaurantRepository;
 
     @Override
+    public List<CodeDto> getAllCodes() {
+        return codeRepository.getAllRestaurantCodes();
+    }
+
+    @Override
     public CodeDto createCode(Long id,CodeDetails codeDetails) {
 
         Code code = new Code();
@@ -38,7 +43,7 @@ public class CodeServiceImpl implements CodeService {
 
         code=codeRepository.save(code);
 
-        return new CodeDto(code.getId(),id,code.getName(),code.getValue(),code.getExpirationDate());
+        return new CodeDto(code.getId(),id,code.getName(),code.getValue(),code.getExpirationDate(),opt.get().getName());
     }
 
     @Override
@@ -56,7 +61,7 @@ public class CodeServiceImpl implements CodeService {
 
         code=codeRepository.save(code);
 
-        return new CodeDto(code.getId(),id,code.getName(),code.getValue(),code.getExpirationDate());
+        return new CodeDto(code.getId(),id,code.getName(),code.getValue(),code.getExpirationDate(),opt.get().getName());
     }
 
     @Override

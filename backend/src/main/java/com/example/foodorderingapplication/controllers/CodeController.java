@@ -61,5 +61,16 @@ public interface CodeController {
     )
     List<CodeDto> getCodesFromRestaurant(Long id);
 
+    @Operation(description = "gets discounts from all the the restaurants")
+    @ApiResponses(
+            value = {
+                    @ApiResponse(responseCode = "200",description = "discount codes found succesfully",
+                            content = {@Content(mediaType = "application/json",schema = @Schema(implementation = CodeDto.class))}),
+                    @ApiResponse(responseCode = "400",description = "Invalid request",content = @Content),
+                    @ApiResponse(responseCode = "404",description = "Couldnt get any codes",content = @Content)}
+    )
+    List<CodeDto> getallCodes();
+
+
 
 }
