@@ -23,23 +23,31 @@
 
   <p align="center"> Search for your favourite restaurant ! </p>
 
-  <ion-toolbar>
+  <ion-toolbar *ngFor="let r of restaurantList">
     <ion-label>
-      <p align="center">Mc Donald's</p>
+
+        <p align="center">{{r.name}}</p>
+
     </ion-label>
-    <p align="center">
-      <ion-img  src="./assets/images/mc.jpg" style="width: 50%" align="center"></ion-img>
-    </p>
   </ion-toolbar>
 
-  <ion-toolbar>
-    <ion-label>
-      <p align="center">KFC</p>
-    </ion-label>
-    <p align="center">
-      <ion-img  src="./assets/images/kfc.jpg" style="width: 50%"></ion-img>
-    </p>
-  </ion-toolbar>
+<!--  <ion-toolbar>-->
+<!--    <ion-label>-->
+<!--      <p align="center">Mc Donald's</p>-->
+<!--    </ion-label>-->
+<!--    <p align="center">-->
+<!--      <ion-img  src="./assets/images/mc.jpg" style="width: 50%" align="center"></ion-img>-->
+<!--    </p>-->
+<!--  </ion-toolbar>-->
+
+<!--  <ion-toolbar>-->
+<!--    <ion-label>-->
+<!--      <p align="center">KFC</p>-->
+<!--    </ion-label>-->
+<!--    <p align="center">-->
+<!--      <ion-img  src="./assets/images/kfc.jpg" style="width: 50%"></ion-img>-->
+<!--    </p>-->
+<!--  </ion-toolbar>-->
 
   <p align="center"> And more others ! </p>
   <ion-card>
