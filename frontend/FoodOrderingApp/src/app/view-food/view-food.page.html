@@ -27,7 +27,7 @@
 
     <ion-label>{{food.name}}
       <ion-buttons>
-        <ion-button  color="dark">Edit
+        <ion-button  color="dark" (click)="editFood(food.id)">Edit
           <ion-icon slot="start" name="create"></ion-icon>
         </ion-button>
         <ion-button color="dark" (click)="remove(food.id,i)">Delete

@@ -10,25 +10,45 @@
 
   <ion-item style="text-align: left">
     <ion-label>Name:</ion-label>
-    <ion-input type="text" placeholder="Enter the food's name"></ion-input>
+    <ion-input type="text" placeholder="Enter the food's name" [(ngModel)]="name" ></ion-input>
   </ion-item>
-
   <ion-item>
     <ion-label>Percentage:</ion-label>
-    <ion-input type="number" placeholder="Enter percentage for discount"></ion-input>
+    <ion-input type="number" placeholder="Enter percentage for discount" [(ngModel)]="percentage"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>ExpirationDate:</ion-label>
+    <ion-input type="string" placeholder="Enter percentage for discount" [(ngModel)]="expirationDate"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Restaurant:</ion-label>
+    <ion-select class="CategorySelect" [(ngModel)]="restaurantId">
+      <ion-select-option [value]="restaurant.id" *ngFor="let restaurant of restaurantList" >
+        {{restaurant.name}}
+      </ion-select-option>
+    </ion-select>
   </ion-item>
 
-  <ion-button class="add" fill="outline" color="dark" size="large"> Add </ion-button>
+  <ion-button class="add" fill="outline" color="dark" size="large" (click)="create()" > Add </ion-button>
+
   <div class="discounts-section ion-padding">
     <h1 align="center">Active Discounts!</h1>
 
+    <ion-select class="CategorySelect" [(ngModel)]="restaurantId2" (ionChange)="onChange()" >
+      <ion-select-option [value]="restaurant.id" *ngFor="let restaurant of restaurantList"  >
+        {{restaurant.name}}
+      </ion-select-option>
+    </ion-select>
+
+
 <!--    <ion-content id="content2" class="padding" scroll-y="true" scrollY="true" scrollEvents="true" overflow-scroll="true">-->
-      <ion-list>
-    <ion-item>
+      <ion-list *ngFor="let code of codesList ; let i">
+    <ion-item >
       <ion-label>
-        <ion-text class="discounts">Discount 1 - </ion-text>
-        <ion-text class="percentage">Percentage</ion-text>
-        <ion-button class="delete" fill="outline" color="dark" size="small">Delete</ion-button>
+        <ion-text class="discounts">{{code.name}} </ion-text>
+        <ion-text class="percentage">{{code.value}}</ion-text>
+        <ion-text>{{code.expirationDate}}</ion-text>
+        <ion-button class="delete" fill="outline" color="dark" size="small" (click)="delete(code.id)">Delete</ion-button>
       </ion-label>
     </ion-item>
     </ion-list>
