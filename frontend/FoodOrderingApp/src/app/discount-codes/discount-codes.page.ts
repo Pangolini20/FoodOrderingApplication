@@ -48,8 +48,10 @@ export class DiscountCodesPage implements OnInit {
     this.menu.enable(true, 'main');
     this.menu.open('main');
   }
- addCode(){
 
+ addCode(code:CodeDto){
+
+    this.cartService.addDiscount(code)
   }
 
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {CodeDto} from "../dto/code-dto";
 
 
 @Injectable({
@@ -45,6 +46,7 @@ export class CartService {
   ];
 
   private cart = [];
+  private discounts:CodeDto[] =[];
 
   constructor() { }
 
@@ -58,6 +60,17 @@ export class CartService {
 
   addProduct(product) {
     this.cart.push(product);
+  }
+
+  addDiscount(discountCode)
+  {
+    if(!this.discounts.includes(discountCode))
+      this.discounts.push(discountCode)
+  }
+
+  getCodes()
+  {
+    return this.discounts;
   }
 
 }
