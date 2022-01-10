@@ -2,6 +2,20 @@ ion-toolbar{
   --background: #9CA986;
 }
 ion-content{
+  ion-list{
+    ion-item{
+      ion-card{
+        ion-card-content{
+          .deleteRestaurant{
+            border-bottom-right-radius: 20px;
+            margin-left: 80%;
+            margin-top: -40px;
+          }
+        }
+      }
+    }
+
+  }
   .addRestaurant {
     margin-top: 20px;
     background: #9CA986;

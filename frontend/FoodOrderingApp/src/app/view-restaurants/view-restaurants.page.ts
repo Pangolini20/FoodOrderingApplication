@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MenuController} from "@ionic/angular";
+import {AlertController, MenuController} from "@ionic/angular";
 import {RestaurantService} from "../services/restaurant.service";
 import {UserProfile} from "../dto/user-profile";
 import {RestaurantDto} from "../dto/restaurant-dto";
@@ -14,11 +14,12 @@ export class ViewRestaurantsPage implements OnInit {
 
   owner:UserProfile=JSON.parse(localStorage.getItem('currentUser'));
   ownedRestaurants?:RestaurantDto[]=[];
+  restaurantList?:RestaurantDto[];
 
 
 
 
-  constructor(private menu:MenuController,private restaurantService:RestaurantService) {
+  constructor(private menu:MenuController,private restaurantService:RestaurantService, public alertController: AlertController) {
     this.getRestaurantByOwner()
   }
 
@@ -47,5 +48,38 @@ export class ViewRestaurantsPage implements OnInit {
   _openMenuAdmin(){
     this.menu.enable(true, 'second');
     this.menu.open('second');
+  }
+
+
+  showAlert() {
+
+    this.alertController.create({
+      header: 'Are you sure?',
+      subHeader: '',
+      message: 'You can not revert this!',
+      cssClass:'buttonCss',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+        },
+        {
+          text: 'Delete',
+          role:'destructive',
+          handler: () => {
+            console.log("Delete button pressed");
+          }
+        }
+      ]
+    }).then(res => {
+
+      res.present();
+
+    });
+
+  }
+
+  delete(){
+
   }
 }

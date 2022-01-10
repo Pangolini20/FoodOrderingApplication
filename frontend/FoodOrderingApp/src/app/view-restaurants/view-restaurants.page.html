@@ -15,6 +15,7 @@
           <ion-card-subtitle align="center">Restaurant nr {{r.id}}</ion-card-subtitle>
           <ion-card-content>
             <ion-row>Name:{{r.name}}</ion-row>
+              <ion-button class="deleteRestaurant" color="dark" (click)="showAlert()">Delete</ion-button>
           </ion-card-content>
         </ion-card>
       </ion-label>
