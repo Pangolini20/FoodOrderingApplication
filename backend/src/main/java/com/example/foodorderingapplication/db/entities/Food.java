@@ -98,4 +98,17 @@ public class Food {
     public void setOrderList(List<Order> orderList) {
         this.orderList = orderList;
     }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", category=" + category +
+                ", restaurant=" + restaurant +
+                ", orderList=" + orderList +
+                '}';
+    }
 }

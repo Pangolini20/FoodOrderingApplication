@@ -27,10 +27,10 @@
 
     <ion-label>{{food.name}}
       <ion-buttons>
-        <ion-button color="dark" routerLink="/edit-food">Edit
+        <ion-button  color="dark" (click)="editFood(food.id)">Edit
           <ion-icon slot="start" name="create"></ion-icon>
         </ion-button>
-        <ion-button color="dark" (click)="remove()">Delete
+        <ion-button color="dark" (click)="remove(food.id,i)">Delete
           <ion-icon slot="start" name="trash"></ion-icon>
         </ion-button>
       </ion-buttons>

@@ -40,28 +40,6 @@ public class FoodServiceImpl implements FoodService{
         return true;
     }
 
-    Boolean checkNameEdit(Long id,String name){
-        Optional<Food> foodOptional= foodRepository.findById(id);
-
-        if(foodOptional.isEmpty())
-        {
-            throw new NoDataFoundException();
-        }
-
-        Food new_f = foodOptional.get();
-        List<Food> foodList=foodRepository.findByRestaurant(new_f.getRestaurant());
-
-        for(Food f : foodList)
-        {
-            if(f.getName().equals(name) && f.getId() !=id)
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     private Long getNrOfWordApparitions(Long id, String name) {
         List<FoodDto> foodList=foodRepository.findByRestaurantId(id);
         if(foodList.isEmpty())
@@ -94,14 +72,38 @@ public class FoodServiceImpl implements FoodService{
         food.setRestaurant(restaurantRepository.findById(id).get());
 
         food = foodRepository.save(food);
-        System.out.println(id);
+
         return new FoodDto(food.getId(),foodDetails.getName(),foodDetails.getDescription(),foodDetails.getPrice(),id,food.getCategory());
+    }
+
+    Boolean checkNameEdit(Long id,String name){
+        Optional<Food> foodOptional= foodRepository.findById(id);
+        if(foodOptional.isEmpty())
+        {
+            throw new NoDataFoundException();
+        }
+
+        Food new_f = foodOptional.get();
+        List<Food> foodList=foodRepository.findByRestaurant(new_f.getRestaurant());
+
+        for(Food f : foodList)
+        {
+            System.out.println(f.toString() + " " + id);
+            if(f.getName().equals(name) && f.getId() !=id)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     @Override
     public FoodDto editFood(Long id,FoodDetails foodDetails) {
-
+        System.out.println(foodDetails.toString());
         Optional<Food> opt = foodRepository.findById(id);
+
+
         if(opt.isEmpty())
             throw new NoDataFoundException();
 
