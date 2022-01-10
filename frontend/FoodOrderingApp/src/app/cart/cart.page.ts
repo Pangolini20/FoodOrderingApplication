@@ -10,6 +10,16 @@ export class CartPage implements OnInit {
   selectedItems = [];
 
   total=0;
+  // Codes=[
+  //   {
+  //     value:1,
+  //   },
+  //   {
+  //     value:2,
+  //   }
+  // ]
+
+  discount=2;
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
@@ -23,7 +33,7 @@ export class CartPage implements OnInit {
       }
     }
     this.selectedItems = Object.keys(selected).map(key => selected[key])
-    this.total = this.selectedItems.reduce((a, b) => a + (b.count * b.price), 0);
+    this.total = this.selectedItems.reduce((a, b) => a + (b.count * b.price), -this.discount);
   }
 
 }
