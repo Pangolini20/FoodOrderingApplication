@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from "../Providers/cart.service";
 import {CodeDto} from "../dto/code-dto";
+import {Orderdto} from "../dto/orderdto";
+import {UserProfile} from "../dto/user-profile";
+import {FoodDto} from "../dto/food-dto";
 
 @Component({
   selector: 'app-cart',
@@ -46,5 +49,29 @@ export class CartPage implements OnInit {
     console.log(this.discount);
     this.total = this.selectedItems.reduce((a, b) => a + (b.count * b.price), -this.discount);
   }
+
+  payProcess()
+  {
+    let order = new Orderdto();
+
+    let id=new UserProfile()
+    id = JSON.parse(localStorage.getItem("currentUser"))
+    order.receiverId = id.id;
+
+    let date=new Date().toISOString();
+    order.date=date;
+
+    order.foodDtoList=this.selectedItems;
+    order.deliveryUserId=3;
+
+    /// trebuie scos restaurant id dintr-o mancare
+
+    order.restaurantId=this.selectedItems[0].restaurantId;
+
+    console.log(order)
+
+  }
+
+
 
 }
