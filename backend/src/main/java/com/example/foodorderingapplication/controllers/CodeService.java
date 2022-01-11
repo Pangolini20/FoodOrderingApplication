@@ -20,13 +20,13 @@ public class CodeService implements CodeController{
 
     @PostMapping("/{id}")
     @Override
-    public ResponseEntity<CodeDto> createCode(@PathVariable(value = "id") Long id, CodeDetails codeDetails) {
+    public ResponseEntity<CodeDto> createCode(@PathVariable(value = "id") Long id, @RequestBody CodeDetails codeDetails) {
         return new ResponseEntity<>(codeService.createCode(id,codeDetails),HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     @Override
-    public ResponseEntity<CodeDto> editCode(@PathVariable(value = "id") Long id, CodeDetails codeDetails) {
+    public ResponseEntity<CodeDto> editCode(@PathVariable(value = "id") Long id, @RequestBody CodeDetails codeDetails) {
         return new ResponseEntity<>(codeService.editCode(id,codeDetails),HttpStatus.OK);
     }
 

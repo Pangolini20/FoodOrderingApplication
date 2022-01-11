@@ -29,7 +29,7 @@
   <ion-toolbar class="ion-no-border" *ngFor="let r of restaurantList">
     <ion-buttons>
       <ion-icon name="pizza"></ion-icon>
-        <ion-button size="large" color="dark" (click)="goToRestaurant()">{{r.name}}</ion-button>
+        <ion-button size="large" color="dark" (click)="goToRestaurant(r.id)">{{r.name}}</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-list>

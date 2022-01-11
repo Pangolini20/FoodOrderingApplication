@@ -12,6 +12,9 @@ public class OrderDto {
     private String date;
     private List<FoodDto> foodDtoList;
 
+    public OrderDto() {
+    }
+
     public OrderDto(Long id, Long receiverId, Long deliveryUserId, Long restaurantId, String date) {
         this.id = id;
         this.receiverId = receiverId;

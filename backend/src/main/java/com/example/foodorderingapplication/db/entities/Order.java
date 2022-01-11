@@ -15,7 +15,7 @@ public class Order {
     public Order() {
     }
 
-    @ManyToMany()
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "order_food",
     joinColumns = @JoinColumn(name = "orderId"),
     inverseJoinColumns = @JoinColumn(name = "foodId"))

@@ -48,9 +48,9 @@ export class DiscountCodesPage implements OnInit {
     this.menu.enable(true, 'main');
     this.menu.open('main');
   }
- addCode(code){
-  localStorage.setItem("discountCode", code );
-  console.log(code);
-  }
 
+ addCode(code:CodeDto){
+
+    this.cartService.addDiscount(code)
+  }
 }

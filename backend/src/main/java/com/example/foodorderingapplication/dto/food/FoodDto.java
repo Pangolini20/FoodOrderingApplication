@@ -11,6 +11,21 @@ public class FoodDto {
     private Long restaurantId;
     private Category category;
 
+    public FoodDto() {
+    }
+
+    @Override
+    public String toString() {
+        return "FoodDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", restaurantId=" + restaurantId +
+                ", category=" + category +
+                '}';
+    }
+
     public FoodDto(Long id, String name, String description, Long price, Long restaurantId) {
         this.id = id;
         this.name = name;

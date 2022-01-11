@@ -24,4 +24,8 @@ public interface FoodRepository extends JpaRepository<Food,Long> {
     @Query("select new com.example.foodorderingapplication.dto.food.FoodDto(f.id,f.name,f.description,f.price,r.id,f.category) from Food f " +
                   "join f.restaurant r where f.category = :category")
     List<FoodDto> getFoodDtoByCategory(Category category);
+
+    @Query("select new com.example.foodorderingapplication.dto.food.FoodDto(f.id,f.name,f.description,f.price,r.id,f.category)" +
+            " from Food f join f.orderList o join f.restaurant r where o.id = :id ")
+    List<FoodDto> getFoodByOrder(@Param("id") Long id);
 }

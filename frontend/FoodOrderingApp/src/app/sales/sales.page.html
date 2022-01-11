@@ -45,9 +45,9 @@
       <ion-list *ngFor="let code of codesList ; let i">
     <ion-item >
       <ion-label>
-        <ion-row class="discounts">{{code.name}} </ion-row>
-        <ion-row class="percentage">{{code.value}}</ion-row>
-        <ion-row>{{code.expirationDate}}</ion-row>
+        <ion-row class="discounts">Code name:{{code.name}} </ion-row>
+        <ion-row class="percentage">Code value{{code.value}}</ion-row>
+        <ion-row>Expiring date:{{code.expirationDate}}</ion-row>
         <ion-button class="delete" fill="outline" color="dark" size="small" (click)="delete(code.id)">Delete</ion-button>
       </ion-label>
     </ion-item>

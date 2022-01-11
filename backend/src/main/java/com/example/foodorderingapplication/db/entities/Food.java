@@ -18,7 +18,7 @@ public class Food {
     @ManyToOne
     private Restaurant restaurant;
 
-    @ManyToMany(mappedBy = "foodList")
+    @ManyToMany(mappedBy = "foodList",cascade = CascadeType.ALL) ///CAN BE THIS
     private List<Order> orderList;
 
     public Food() {
