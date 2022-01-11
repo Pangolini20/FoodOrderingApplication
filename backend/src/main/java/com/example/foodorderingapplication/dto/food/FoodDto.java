@@ -11,6 +11,9 @@ public class FoodDto {
     private Long restaurantId;
     private Category category;
 
+    public FoodDto() {
+    }
+
     public FoodDto(Long id, String name, String description, Long price, Long restaurantId) {
         this.id = id;
         this.name = name;

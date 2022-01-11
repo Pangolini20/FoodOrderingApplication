@@ -15,6 +15,7 @@ import com.example.foodorderingapplication.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -77,7 +78,7 @@ public class OrderServiceImpl implements OrderService {
 
     private List<Food> DtoToFood(List<FoodDto> foodDtoList)
     {
-        List<Food> foodList = Collections.emptyList();
+        List<Food> foodList = new ArrayList<Food>();
         for(FoodDto dto : foodDtoList )
         {
             Food food = getFood(dto);

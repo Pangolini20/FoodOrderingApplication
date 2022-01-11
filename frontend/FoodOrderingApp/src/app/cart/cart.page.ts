@@ -38,7 +38,7 @@ export class CartPage implements OnInit {
       }
     }
     this.selectedItems = Object.keys(selected).map(key => selected[key])
-    this.selectedItems = this.selectedItems.sort((a,b) => (a.restaurantName > b.restaurantName) ? 1 : ((b.restaurantName > a.restaurantName) ? -1 : 0))
+    // this.selectedItems = this.selectedItems.sort((a,b) => (a.restaurantName > b.restaurantName) ? 1 : ((b.restaurantName > a.restaurantName) ? -1 : 0))
     this.Codes=this.cartService.getCodes();
     let arr=  this.Codes.map(x => x.value);
     for(let i = 0;i< arr.length;i=i+1)
@@ -57,19 +57,33 @@ export class CartPage implements OnInit {
     let id=new UserProfile()
     id = JSON.parse(localStorage.getItem("currentUser"))
     order.receiverId = id.id;
-
+    order.id=0
     let date=new Date().toISOString();
     order.date=date;
+/////////////////////////////////////////////////////////////////////////////
+    let contents = this.selectedItems;
 
-    order.foodDtoList=this.selectedItems;
-    order.deliveryUserId=3;
+    for(let i = 0;i < contents.length;i++)
+      for(let j=0 ;j<contents[i].count;j++) {
+        let foodDto = new FoodDto();
+        foodDto.id=contents[i].id
+        foodDto.price=contents[i].price
+        foodDto.restaurantId=contents[i].restaurantId
+        foodDto.name=contents[i].name
+        foodDto.category=contents[i].category
+        foodDto.description=contents[i].description
+        order.foodDtoList.push(foodDto);
+      }
+////////////////////////////////////////////////////////////////////////
+    order.deliveryUserId=3; //generic val we have no delivery boy :D
 
     /// trebuie scos restaurant id dintr-o mancare
-
     order.restaurantId=this.selectedItems[0].restaurantId;
 
-    console.log(order)
+    // console.log(order)
 
+    this.cartService.currentOrder=order;
+    console.log(this.cartService.currentOrder)
   }
 
 

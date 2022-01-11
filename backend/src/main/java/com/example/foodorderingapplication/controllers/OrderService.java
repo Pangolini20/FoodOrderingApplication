@@ -18,13 +18,13 @@ public class OrderService implements OrderController{
     OrderServiceImpl orderService;
 
     @Override
-    @GetMapping
+    @GetMapping("/{id}")
     public List<OrderDto> getUserOrders(Long id) {
         return orderService.getOrders(id);
     }
 
     @Override
-    @PostMapping
+    @PostMapping("")
     public OrderDto createOrder(@RequestBody OrderDto orderDto) {
         return orderService.createOrder(orderDto);
     }

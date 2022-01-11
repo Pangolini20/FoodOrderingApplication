@@ -6,5 +6,6 @@ export class Orderdto {
   deliveryUserId:number;
   restaurantId:number;
   date:string;
-  foodDtoList:FoodDto[]
+  foodDtoList:FoodDto[] =[];
+
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CartService} from "../Providers/cart.service";
 import { AlertController } from '@ionic/angular';
+import {OrderService} from "../services/order.service";
 
 @Component({
   selector: 'app-pay',
@@ -10,7 +11,9 @@ import { AlertController } from '@ionic/angular';
 export class PayPage implements OnInit {
 
   input:number;
-  constructor(private cartService: CartService, public alertController: AlertController) { }
+  constructor(private cartService: CartService,
+              public alertController: AlertController,
+              private orderService:OrderService) { }
   selectedItems = [];
   total=0;
 
@@ -30,18 +33,19 @@ export class PayPage implements OnInit {
   }
 
   showAlert() {
-
-    this.alertController.create({
-      header: 'Order Confirmation',
-      subHeader: '',
-      message: 'Your food will be there very soon!',
-      cssClass:'buttonCss',
-      buttons: ['OK']
-    }).then(res => {
-
-      res.present();
-
-    });
+    console.log(this.cartService.currentOrder);
+    this.orderService.createOrder(this.cartService.currentOrder).subscribe();
+    // this.alertController.create({
+    //   header: 'Order Confirmation',
+    //   subHeader: '',
+    //   message: 'Your food will be there very soon!',
+    //   cssClass:'buttonCss',
+    //   buttons: ['OK']
+    // }).then(res => {
+    //
+    //   res.present();
+    //
+    // });
 
   }
 

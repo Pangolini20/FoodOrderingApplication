@@ -9,6 +9,8 @@ import {Orderdto} from "../dto/orderdto";
   })
   export class CartService {
 
+
+
     private data = [
       {
         category: 'Burgers',
@@ -49,7 +51,8 @@ import {Orderdto} from "../dto/orderdto";
 
     private cart = [];
     private discounts:CodeDto[] =[];
-    private currentOrder:Orderdto;
+    currentOrder:Orderdto;
+
 
     constructor() { }
 
@@ -70,11 +73,6 @@ import {Orderdto} from "../dto/orderdto";
       if(!this.discounts.includes(discountCode))
         this.discounts.push(discountCode)
     }
-
-
-
-
-
 
     getCodes()
     {

@@ -40,8 +40,8 @@ export class BrowsePage implements OnInit {
   openCart() {
     this.router.navigate(['cart']);
   }
-  goToRestaurant(){
-    this.router.navigateByUrl('/restaurant');
+  goToRestaurant(restaurantId:number){
+    this.router.navigateByUrl('/restaurant',{ state: { data: restaurantId } });
   }
 
   getCategories(){

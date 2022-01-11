@@ -16,14 +16,14 @@
 </ion-header>
 
 <ion-content>
-  <div *ngFor="let cat of items" class="category-block">
-    <div *ngIf="cat.category == 'Pizza'"> <!-- Verificare daca e din restaurantu asta mancarea, daca da afisare-->
-      <ion-col (click)="!cat.expanded" >
-      </ion-col>
+  <div  class="category-block"> <!--*ngFor="let cat of foodList"-->
+    <div > <!-- Verificare daca e din restaurantu asta mancarea, daca da afisare-->
+<!--      <ion-col (click)="!cat.expanded" >-->
+<!--      </ion-col>-->
 
       <ion-slides [options]="sliderConfig">
-        <ion-slide *ngFor="let product of cat.products">
-          <div *ngIf="cat.expanded">
+        <ion-slide *ngFor="let product of foodList">
+          <div >
             <ion-card>
               <ion-card-header>
                 <ion-card-title>
