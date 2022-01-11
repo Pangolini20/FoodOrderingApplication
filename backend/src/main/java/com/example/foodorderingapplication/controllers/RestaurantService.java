@@ -60,7 +60,7 @@ public class RestaurantService implements RestaurantController{
 
     @Override
     @DeleteMapping("/{id}")
-    public void deleteRestaurant(Long id) {
+    public void deleteRestaurant(@PathVariable(value = "id") Long id) {
         restaurantService.deleteRestaurant(id);
     }
 }

@@ -15,10 +15,7 @@ import com.example.foodorderingapplication.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -37,7 +34,14 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<OrderDto> getOrders(Long id) {
-        return orderRepository.getOrdersByUserId(id);
+        List<OrderDto> orders= orderRepository.getOrdersByUserId(id);
+        for(OrderDto orderDto : orders)
+        {
+            List<FoodDto> foodDtoList= foodRepository.getFoodByOrder(orderDto.getId());
+            orderDto.setFoodDtoList(foodDtoList);
+        }
+
+        return orders;
     }
 
     @Override
@@ -63,6 +67,7 @@ public class OrderServiceImpl implements OrderService {
             throw new NoDataFoundException();
         }
 
+
         List<FoodDto> foodDtoList=orderDto.getFoodDtoList();
         List<Food> foodList = DtoToFood(foodDtoList);
 
@@ -78,9 +83,10 @@ public class OrderServiceImpl implements OrderService {
 
     private List<Food> DtoToFood(List<FoodDto> foodDtoList)
     {
-        List<Food> foodList = new ArrayList<Food>();
+        List<Food> foodList = new ArrayList(Arrays.asList());
         for(FoodDto dto : foodDtoList )
         {
+
             Food food = getFood(dto);
             foodList.add(food);
         }
@@ -88,6 +94,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private Food getFood(FoodDto dto) {
+        System.out.println(dto.toString());
+
+
         if(foodRepository.findById(dto.getId()).isEmpty())
             throw new NoDataFoundException();
 
@@ -96,7 +105,7 @@ public class OrderServiceImpl implements OrderService {
         food.setName(dto.getName());
         food.setDescription(dto.getDescription());
 
-        Optional<Restaurant> opt =restaurantRepository.findById(dto.getId());
+        Optional<Restaurant> opt =restaurantRepository.findById(dto.getRestaurantId());
 
         if(opt.isEmpty())
             throw new NoDataFoundException();

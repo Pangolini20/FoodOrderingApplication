@@ -51,8 +51,9 @@ export class ViewRestaurantsPage implements OnInit {
   }
 
 
-  showAlert() {
-
+  showAlert(id:number) {
+    console.log(id)
+    this.restaurantService.deleteRestaurant(id).subscribe()
     this.alertController.create({
       header: 'Are you sure?',
       subHeader: '',
