@@ -46,7 +46,7 @@ public class FoodService implements FoodController{
 
     @Override
     @GetMapping("/{category}")
-    public List<FoodDto> getByCategory(Category category) {
+    public List<FoodDto> getByCategory(@PathVariable(value = "category") Category category) {
         return foodService.getFoodByCategory(category);
     }
 }

@@ -6,7 +6,6 @@ import {CartService} from "../Providers/cart.service";
 import {UserProfile} from "../dto/user-profile";
 import {RestaurantDto} from "../dto/restaurant-dto";
 import {RestaurantService} from "../services/restaurant.service";
-import {StorageService} from "../services/storage.service";
 
 
 @Component({

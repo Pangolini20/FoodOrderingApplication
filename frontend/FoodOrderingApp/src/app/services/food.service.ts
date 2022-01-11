@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {FoodDto} from "../dto/food-dto";
 import {FoodDetails} from "../dto/food-details";
+import {Foodcategory} from "../dto/foodcategory";
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,7 @@ export class FoodService {
     return this.http.get<FoodDto[]>(`${this.foodURL}/restaurant/${id}`)
   }
 
-  getFoodByCategory(category :string): Observable<FoodDto[]>
+  getFoodByCategory(category :Foodcategory): Observable<FoodDto[]>
   {
     return this.http.get<FoodDto[]>(`${this.foodURL}/${category}`)
   }
