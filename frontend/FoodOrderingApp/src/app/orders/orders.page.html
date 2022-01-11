@@ -17,15 +17,16 @@
 </ion-header>
 
 
-  <ion-list>
+  <ion-list *ngFor="let order of ordersList ; let i = index">
     <ion-item>
     <ion-label>
       <ion-card>
-        <ion-card-subtitle align="center">Order nr1</ion-card-subtitle>
-        <ion-card-content>
-          <ion-row>Products:</ion-row>
-          <ion-row>Total price:</ion-row>
+        <ion-card-subtitle align="center">Order nr {{i}}</ion-card-subtitle>
+        <ion-row>Products:</ion-row>
+        <ion-card-content *ngFor="let food of order.foodDtoList">
+          <ion-row>{{food.name}}- ${{food.price}}</ion-row>
         </ion-card-content>
+        <ion-row>Total price:{{total[i]}}</ion-row>
       </ion-card>
     </ion-label>
     </ion-item>

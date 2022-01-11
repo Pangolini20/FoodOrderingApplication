@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
 import {Orderdto} from "../dto/orderdto";
+import {FoodDto} from "../dto/food-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import {Orderdto} from "../dto/orderdto";
 export class OrderService {
 
   private orderURL:string;
+
 
   constructor(private http:HttpClient) {
     this.orderURL=`${environment.baseUrl}/order`
@@ -20,8 +22,8 @@ export class OrderService {
     return this.http.post<Orderdto>(this.orderURL,order);
   }
 
-  getOrder(id:number):Observable<Orderdto>
+  getOrder(id:number):Observable<Orderdto[]>
   {
-   return this.http.get<Orderdto>(this.orderURL);
+   return this.http.get<Orderdto[]>(`${this.orderURL}/${id}`);
   }
 }

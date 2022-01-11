@@ -19,7 +19,7 @@ public class OrderService implements OrderController{
 
     @Override
     @GetMapping("/{id}")
-    public List<OrderDto> getUserOrders(Long id) {
+    public List<OrderDto> getUserOrders(@PathVariable(value = "id") Long id) {
         return orderService.getOrders(id);
     }
 
