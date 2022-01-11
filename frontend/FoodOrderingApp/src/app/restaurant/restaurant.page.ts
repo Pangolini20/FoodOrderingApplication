@@ -40,7 +40,8 @@ export class RestaurantPage implements OnInit {
           else
             i=i+1;
         this.foodList = arr
-        console.log(this.foodList)});
+        // console.log(this.foodList)
+      });
 
   }
 

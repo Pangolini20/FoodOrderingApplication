@@ -18,8 +18,13 @@ export class BrowsePage implements OnInit {
   categories: Category[] = [];
 
   restaurantList:RestaurantDto[];
-  constructor(private menu:MenuController, private router: Router, private cartService: CartService,private restaurantService:RestaurantService) {
-    this.restaurantService.getAllRestaurants().subscribe(x => this.restaurantList = x)
+  constructor(private menu:MenuController,
+              private router: Router,
+              private cartService: CartService,
+              private restaurantService:RestaurantService
+             ) {
+    this.restaurantService.getAllRestaurants().subscribe(x => this.restaurantList=x)
+
   }
   cart = [];
   items = [];
