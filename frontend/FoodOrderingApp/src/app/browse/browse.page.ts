@@ -6,6 +6,7 @@ import {CartService} from "../Providers/cart.service";
 import {UserProfile} from "../dto/user-profile";
 import {RestaurantDto} from "../dto/restaurant-dto";
 import {RestaurantService} from "../services/restaurant.service";
+import {StorageService} from "../services/storage.service";
 
 
 @Component({
@@ -18,8 +19,13 @@ export class BrowsePage implements OnInit {
   categories: Category[] = [];
 
   restaurantList:RestaurantDto[];
-  constructor(private menu:MenuController, private router: Router, private cartService: CartService,private restaurantService:RestaurantService) {
-    this.restaurantService.getAllRestaurants().subscribe(x => this.restaurantList = x)
+  constructor(private menu:MenuController,
+              private router: Router,
+              private cartService: CartService,
+              private restaurantService:RestaurantService
+             ) {
+    this.restaurantService.getAllRestaurants().subscribe(x => this.restaurantList=x)
+
   }
   cart = [];
   items = [];
