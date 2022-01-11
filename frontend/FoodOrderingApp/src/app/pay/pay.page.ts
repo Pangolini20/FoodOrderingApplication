@@ -35,17 +35,17 @@ export class PayPage implements OnInit {
   showAlert() {
     console.log(this.cartService.currentOrder);
     this.orderService.createOrder(this.cartService.currentOrder).subscribe();
-    // this.alertController.create({
-    //   header: 'Order Confirmation',
-    //   subHeader: '',
-    //   message: 'Your food will be there very soon!',
-    //   cssClass:'buttonCss',
-    //   buttons: ['OK']
-    // }).then(res => {
-    //
-    //   res.present();
-    //
-    // });
+    this.alertController.create({
+      header: 'Order Confirmation',
+      subHeader: '',
+      message: 'Your food will be there very soon!',
+      cssClass:'buttonCss',
+      buttons: ['OK']
+    }).then(res => {
+
+      res.present();
+
+    });
 
   }
 

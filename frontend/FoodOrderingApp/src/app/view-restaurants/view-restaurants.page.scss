@@ -5,7 +5,13 @@ ion-content{
   ion-list{
     ion-item{
       ion-card{
+        --background: #9CA986;
+        ion-card-subtitle{
+          color: #0d0d0d;
+        }
         ion-card-content{
+          font-weight: bold;
+          color: #0d0d0d;
           .deleteRestaurant{
             border-bottom-right-radius: 20px;
             margin-left: 80%;

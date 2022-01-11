@@ -15,3 +15,30 @@ ion-toolbar {
     }
   }
 }
+
+ion-content{
+  ion-list{
+    ion-card{
+      --background:#9CA986 ;
+      ion-card-subtitle{
+        color: #0d0d0d;
+      }
+      .products{
+        color: #0d0d0d;
+        font-weight: bold;
+        height:auto;
+      }
+      ion-card-content{
+        color: #0d0d0d;
+        ion-row{
+          height: 20px;
+          margin-top: -20px;
+        }
+      }
+      .price{
+        color: #0d0d0d;
+        font-weight: bold;
+      }
+    }
+  }
+}
